@@ -33,7 +33,7 @@ export default function Navbar() {
       className="fixed top-0 left-0 right-0 z-350 flex flex-col pointer-events-auto"
     >
       {/* Top Announcement Strip — Luxury Champagne Gold */}
-      <div className="bg-gradient-to-r from-[#E7D7B3] via-[#D6BB88] to-[#B89B62] text-[#21102F] text-[14px] sm:text-s py-2 px-4 text-center font-medium tracking-wide shadow-sm flex items-center justify-center space-x-1.5 flex-wrap">
+      <div className="bg-gradient-to-r from-[#E7D7B3] via-[#D6BB88] to-[#B89B62] text-[#21102F] text-[10px] sm:text-xs py-1.5 px-3 text-center font-medium tracking-wide shadow-sm flex items-center justify-center space-x-1 sm:space-x-1.5 flex-wrap">
         <span>Emirati Women's Day Open House · Fri 28 Aug · 4–8 PM · Danube Sales Gallery, SZR — 40 seats only ·</span>
         <a
           href="#workshops"
