@@ -27,8 +27,8 @@ export default function AboutSection() {
           {/* Right — concise story */}
           <div className="lg:col-span-6 space-y-5 lg:pt-8">
             <p className="text-lg text-[#2B2B2B]/85 font-light leading-relaxed">
-              Nobody teaches women how property really works, what a payment plan hides, what a service charge becomes, which clause quietly locks your exit. So most women either stay out of the market, or walk in guided by someone paid on commission. SheOwns was founded by Aurex Privy, with the strong support of BeingShe, to end that: a private advisory where you learn the market before you ever sign it and where the advisor across the table is paid to protect your interest, not close you.
-            </p>
+             For many women, real estate feels unnecessarily complex. Payment plans, service charges, ownership costs, legal clauses, and long-term implications are rarely explained with complete clarity. As a result, many delay investing, while others make decisions without fully understanding what they are signing.
+SheOwns was created to change that. </p>
           </div>
         </motion.div>
 

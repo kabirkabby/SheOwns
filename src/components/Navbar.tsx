@@ -32,15 +32,21 @@ export default function Navbar() {
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className="fixed top-0 left-0 right-0 z-350 flex flex-col pointer-events-auto"
     >
-      {/* Top Announcement Strip — Luxury Champagne Gold */}
-      <div className="bg-gradient-to-r from-[#E7D7B3] via-[#D6BB88] to-[#B89B62] text-[#21102F] text-[10px] sm:text-xs py-1.5 px-3 text-center font-medium tracking-wide shadow-sm flex items-center justify-center space-x-1 sm:space-x-1.5 flex-wrap">
-        <span>Emirati Women's Day Open House · Fri 28 Aug · 4–8 PM · Danube Sales Gallery, SZR — 40 seats only ·</span>
-        <a
-          href="#workshops"
-          className="underline underline-offset-2 font-bold hover:text-[#3B235A] transition-colors"
-        >
-          Reserve yours
-        </a>
+      {/* Top Announcement Strip — Slides UP & disappears when scrolling */}
+      <div
+        className={`w-full transition-all duration-500 overflow-hidden ${
+          scrolled ? "max-h-0 opacity-0 pointer-events-none" : "max-h-24 opacity-100"
+        }`}
+      >
+        <div className="bg-gradient-to-r from-[#E7D7B3] via-[#D6BB88] to-[#B89B62] text-[#21102F] text-[10px] sm:text-xs py-1.5 px-3 text-center font-medium tracking-wide shadow-sm flex items-center justify-center space-x-1 sm:space-x-1.5 flex-wrap">
+          <span>Emirati Women's Day Open House · Fri 28 Aug · 4–8 PM · Danube Sales Gallery, SZR — 40 seats only ·</span>
+          <a
+            href="#workshops"
+            className="underline underline-offset-2 font-bold hover:text-[#3B235A] transition-colors"
+          >
+            Reserve yours
+          </a>
+        </div>
       </div>
 
       {/* Main Navigation Bar */}
