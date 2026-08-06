@@ -22,11 +22,7 @@ export default function WhyDubaiSection() {
   return (
     <section id="why-dubai" className="bg-[#F8F5EF] overflow-hidden">
       {/* Top Banner */}
-      <div className="relative w-full aspect-[21/9] sm:aspect-[3/1] overflow-hidden">
-        <Image src="/images/dubai_skyline.jpg" alt="Dubai Skyline" fill className="object-cover object-center" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#F8F5EF] via-[#F8F5EF]/60 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#21102F]/40 via-transparent to-[#21102F]/40" />
-      </div>
+      
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 sm:py-24 space-y-20">
         {/* Header */}

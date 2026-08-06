@@ -4,12 +4,9 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
-import WhyDubaiSection from "@/components/WhyDubaiSection";
 import WhySheOwnsSection from "@/components/WhySheOwnsSection";
-import HowItWorksSection from "@/components/HowItWorksSection";
-import ExclusiveBenefitsSection from "@/components/ExclusiveBenefitsSection";
+import CommunitySection from "@/components/CommunitySection";
 import MeetFoundersSection from "@/components/MeetFoundersSection";
-import SuccessStoriesSection from "@/components/SuccessStoriesSection";
 import WorkshopsCommunitySection from "@/components/WorkshopsCommunitySection";
 import InvestmentGuideSection from "@/components/InvestmentGuideSection";
 import FAQSection from "@/components/FAQSection";
@@ -33,12 +30,9 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <AboutSection />
-      <WhyDubaiSection />
       <WhySheOwnsSection />
-      <HowItWorksSection />
-      <ExclusiveBenefitsSection />
+      <CommunitySection />
       <MeetFoundersSection />
-      <SuccessStoriesSection />
       <WorkshopsCommunitySection />
       <InvestmentGuideSection />
       <FAQSection />

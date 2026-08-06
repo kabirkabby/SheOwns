@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BookOpen, ArrowRight, Sparkles } from "lucide-react";
+import { BookOpen, ArrowRight } from "lucide-react";
 import { useState } from "react";
 
 export default function InvestmentGuideSection() {
@@ -42,7 +42,7 @@ export default function InvestmentGuideSection() {
                   <span className="italic text-[#D6BB88]">For free.</span>
                 </h2>
                 <p className="text-lg text-[#F8F5EF]/75 font-light leading-relaxed max-w-md">
-                  The She Owns Guide to Dubai Real Estate — written for first-time women investors. No jargon. No pressure. Just clarity.
+                  The SheOwns Guide to Dubai Real Estate — written for first-time women investors. No jargon. No pressure. Just clarity.
                 </p>
               </div>
 
@@ -50,11 +50,11 @@ export default function InvestmentGuideSection() {
                 {[
                   "How off-plan investing actually works",
                   "The contract red flags that cost buyers millions",
-                  "The 1% monthly payment plan, fully explained",
+                  "Customised monthly payment plans, fully explained",
                   "Your rights as a foreign woman investor in Dubai",
                 ].map((item) => (
                   <li key={item} className="flex items-start space-x-3 text-base text-[#F8F5EF]/80 font-light">
-                    <Sparkles className="w-4 h-4 text-[#D6BB88] mt-0.5 shrink-0" />
+                    <span className="text-[#D6BB88] font-bold mt-0.5 shrink-0">•</span>
                     <span>{item}</span>
                   </li>
                 ))}

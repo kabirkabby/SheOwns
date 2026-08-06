@@ -7,22 +7,30 @@ const founders = [
   {
     name: "Gaurav Sharma",
     role: "Founder & Managing Director, Aurex Privy Real Estate",
-    quote: "Real estate in Dubai is not complicated. It has just never been explained clearly to women. That's what She Owns is here to change.",
+    quote: "Real estate in Dubai is not complicated. It has just never been explained clearly to women. That's what SheOwns is here to change.",
     image: "/images/gaurav_sharma.jpg",
-    credentials: ["Dubai's leading boutique real estate advisory", "Trusted by 500+ international investors", "Specialist in women-first investment strategy"],
+    credentials: [
+      "Dubai's leading boutique real estate advisory",
+      "Trusted by 500+ international investors",
+      "Specialist in women-first investment strategy",
+    ],
   },
   {
     name: "Aparna Bajpai",
     role: "Founder & President, Being She Association",
     quote: "Financial independence is not a privilege. It is a right — and for too long, women have been left out of the conversations that build it.",
     image: "/images/aparna_bajpai.jpg",
-    credentials: ["Asia's largest network of women leaders", "15,000+ active community members", "Hosted 200+ women empowerment events globally"],
+    credentials: [
+      "Asia's largest network of women leaders",
+      "15,000+ active community members",
+      "Hosted 200+ women empowerment events globally",
+    ],
   },
 ];
 
 export default function MeetFoundersSection() {
   return (
-    <section id="founders" className="bg-gradient-to-br from-[#21102F] via-[#3B235A] to-[#21102F] py-24 px-6 md:px-12 overflow-hidden">
+    <section id="founders" className="bg-[#EFE9DF] py-24 px-6 md:px-12 overflow-hidden">
       <div className="max-w-7xl mx-auto space-y-16">
 
         {/* Header */}
@@ -33,13 +41,14 @@ export default function MeetFoundersSection() {
           transition={{ duration: 0.8 }}
           className="space-y-3"
         >
-          <span className="text-xs uppercase tracking-widest text-[#D6BB88] font-semibold">The Visionaries</span>
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-light text-[#F8F5EF] leading-[1.15]">
-            <span className="italic text-[#D6BB88]">Behind She Owns</span>
+          <span className="text-xs uppercase tracking-widest text-[#3B235A] font-semibold">The Founders</span>
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-light text-[#21102F] leading-[1.15]">
+            The people who{" "}
+            <span className="italic text-[#3B235A]">built this for you.</span>
           </h2>
         </motion.div>
 
-        {/* Founders Cards */}
+        {/* Founders — editorial asymmetric layout */}
         <div className="space-y-8 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-8">
           {founders.map(({ name, role, quote, image, credentials }, idx) => (
             <motion.div
@@ -48,36 +57,38 @@ export default function MeetFoundersSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: idx * 0.15 }}
-              className="bg-gradient-to-br from-[#D6BB88]/10 to-[#D6BB88]/05 border border-[#D6BB88]/40 rounded-2xl overflow-hidden hover:border-[#D6BB88] hover:shadow-xl hover:shadow-[#D6BB88]/15 transition-all duration-500 flex flex-col"
+              className="group"
             >
-              {/* Image Top */}
-              <div className="relative aspect-[4/5] w-full">
+              {/* Portrait — large and editorial */}
+              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden mb-6">
                 <Image
                   src={image}
                   alt={name}
                   fill
                   quality={95}
-                  className="object-cover object-top"
+                  className="object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700"
                 />
+                {/* Gradient overlay at bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#21102F] via-transparent to-transparent opacity-80" />
+
+                {/* Name overlay at bottom */}
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="space-y-0.5">
+                    <h3 className="font-serif text-2xl text-[#F8F5EF]">{name}</h3>
+                    <p className="text-xs uppercase tracking-widest text-[#D6BB88] font-medium">{role}</p>
+                  </div>
+                </div>
               </div>
 
-              {/* Content Bottom */}
-              <div className="p-8 flex flex-col flex-grow space-y-6">
-                <div>
-                  <h3 className="font-serif text-2xl sm:text-3xl text-[#D6BB88]">{name}</h3>
-                  <p className="text-xs uppercase tracking-widest text-[#A98BC8] mt-2">{role}</p>
-                </div>
-
-                <div className="w-10 h-0.5 bg-[#D6BB88]" />
-
-                <blockquote className="font-serif text-lg text-[#F8F5EF]/90 italic leading-relaxed">
+              {/* Quote + credentials */}
+              <div className="space-y-5 px-2">
+                <blockquote className="font-serif text-xl sm:text-2xl text-[#21102F] font-light leading-relaxed italic border-l-2 border-[#D6BB88] pl-5">
                   "{quote}"
                 </blockquote>
-
-                <ul className="space-y-2 mt-auto pt-4">
+                <ul className="space-y-2">
                   {credentials.map((c) => (
-                    <li key={c} className="text-sm text-[#F8F5EF]/70 font-light flex items-start space-x-2">
-                      <span className="text-[#D6BB88] mt-0.5">—</span>
+                    <li key={c} className="text-sm text-[#2B2B2B]/70 font-light flex items-start space-x-2">
+                      <span className="text-[#D6BB88] mt-1">—</span>
                       <span>{c}</span>
                     </li>
                   ))}

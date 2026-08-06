@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ArrowRight, BookOpen, Sparkles, Check } from "lucide-react";
+import { X, ArrowRight, BookOpen, Check } from "lucide-react";
 
 interface EmailCapturePopupProps {
   coverDismissed: boolean;
@@ -95,14 +95,14 @@ export default function EmailCapturePopup({ coverDismissed }: EmailCapturePopupP
                   {/* Headline */}
                   <div className="space-y-2">
                     <span className="text-xs uppercase tracking-widest text-[#D6BB88] font-semibold">
-                      Free for She Owns Community
+                      Free for SheOwns Community
                     </span>
                     <h3 className="font-serif text-2xl sm:text-3xl text-[#F8F5EF] font-light leading-snug">
                       The First-Time Investor's Guide to{" "}
                       <span className="italic text-[#D6BB88]">Dubai Real Estate</span>
                     </h3>
                     <p className="text-sm text-[#F8F5EF]/80 font-light leading-relaxed">
-                      Everything no one explains — off-plan contracts, the 1% payment plan, DLD protections, and what to watch out for. Written for women, by women who've done it.
+                      Everything no one explains — off-plan contracts, customised monthly payment plans, DLD protections, and what to watch out for. Written for women, by women who've done it.
                     </p>
                   </div>
 
@@ -111,11 +111,11 @@ export default function EmailCapturePopup({ coverDismissed }: EmailCapturePopupP
                     {[
                       "How off-plan investing actually works",
                       "The contract red flags that cost buyers millions",
-                      "Bespoke 1% monthly payment plan explained",
+                      "Customised monthly payment plans for members",
                       "Your rights as a foreign woman investor in Dubai",
                     ].map((item) => (
                       <li key={item} className="flex items-start space-x-2.5">
-                        <Sparkles className="w-3.5 h-3.5 text-[#D6BB88] mt-0.5 shrink-0" />
+                        <span className="text-[#D6BB88] font-bold mt-0.5 shrink-0">•</span>
                         <span>{item}</span>
                       </li>
                     ))}

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { MessageCircle, ArrowUp, Globe, Mail, Share2 } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -15,25 +16,24 @@ export default function Footer() {
         {/* Top Row: Brand & Newsletter */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-6 space-y-4">
-            <div className="flex items-baseline space-x-2">
-              <span className="font-serif text-3xl font-light text-[#F8F5EF]">
-                SHE OWNS
-              </span>
-              <span className="text-[10px] uppercase tracking-widest text-[#D6BB88]">
-                Dubai
-              </span>
-            </div>
-            <p className="text-xs uppercase tracking-widest text-[#A98BC8] font-medium">
-              An Initiative by Aurex Privy × Being She
-            </p>
-            <p className="text-xs text-[#F8F5EF]/70 font-light max-w-md leading-relaxed">
+            <a href="#" className="inline-block">
+              <Image
+                src="/images/sheowns_logo.png"
+                alt="SheOwns Logo"
+                width={300}
+                height={110}
+                unoptimized
+                className="h-14 sm:h-16 w-auto object-contain"
+              />
+            </a>
+            <p className="text-xs text-[#F8F5EF]/70 font-light max-w-md leading-relaxed pt-1">
               Empowering women through financial literacy, transparent advisory, and exclusive developer opportunities in Dubai’s real estate market.
             </p>
           </div>
 
           <div className="lg:col-span-6 glass-card-dark p-6 rounded-2xl border border-[#D6BB88]/20 space-y-3">
             <span className="text-[10px] uppercase tracking-widest text-[#D6BB88] font-medium">
-              Join The She Owns Circle
+              Join The SheOwns Circle
             </span>
             <h4 className="font-serif text-xl text-[#F8F5EF]">
               Receive Private Market Intelligence & Off-Market Allocations
@@ -56,10 +56,9 @@ export default function Footer() {
           <div className="space-y-3">
             <span className="text-[10px] uppercase tracking-widest text-[#D6BB88] font-semibold">Initiative</span>
             <ul className="space-y-2 text-[#F8F5EF]/70 font-light">
-              <li><a href="#about" className="hover:text-[#D6BB88] transition-colors">About She Owns</a></li>
-              <li><a href="#why-dubai" className="hover:text-[#D6BB88] transition-colors">Why Dubai Real Estate</a></li>
+              <li><a href="#about" className="hover:text-[#D6BB88] transition-colors">About SheOwns</a></li>
               <li><a href="#why-she-owns" className="hover:text-[#D6BB88] transition-colors">The 6 Pillars</a></li>
-              <li><a href="#how-it-works" className="hover:text-[#D6BB88] transition-colors">How It Works</a></li>
+              <li><a href="#founders" className="hover:text-[#D6BB88] transition-colors">The Founders</a></li>
             </ul>
           </div>
 
@@ -109,7 +108,7 @@ export default function Footer() {
         {/* Bottom Row: Disclaimer & Back to Top */}
         <div className="pt-8 border-t border-[#D6BB88]/10 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] text-[#F8F5EF]/50 font-light">
           <div>
-            © {new Date().getFullYear()} She Owns Initiative. Launched by Aurex Privy Real Estate in collaboration with Being She. All rights reserved.
+            © {new Date().getFullYear()} SheOwns Initiative. Launched by Aurex Privy Real Estate in collaboration with Being She. All rights reserved.
           </div>
 
           <div className="flex items-center space-x-6">

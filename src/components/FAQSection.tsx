@@ -13,10 +13,10 @@ const faqs = [
   {
     question: "How much capital do I need to begin investing?",
     answer:
-      "Through She Owns negotiated developer terms, initial booking deposits are reduced, often starting from 10% to 15% down. Remaining installments can be structured under 1% monthly payment schedules during construction, allowing you to invest without liquidating core funds.",
+      "Through SheOwns negotiated developer terms, initial booking deposits are reduced, often starting from 10% to 15% down. Remaining installments can be structured under 1% monthly payment schedules during construction, allowing you to invest without liquidating core funds.",
   },
   {
-    question: "Is She Owns suitable for first-time real estate investors?",
+    question: "Is SheOwns suitable for first-time real estate investors?",
     answer:
       "Absolutely. In fact, over 94% of our members are first-time property buyers. Our initiative was built specifically to eliminate jargon, explain legal protections, and provide 1-on-1 expert advisory so you feel completely confident at every step.",
   },
@@ -33,7 +33,7 @@ const faqs = [
   {
     question: "Are there any hidden advisory or consultation fees?",
     answer:
-      "No. Our educational workshops, market reports, and strategy consultations are 100% complimentary for She Owns community members.",
+      "No. Our educational workshops, market reports, and strategy consultations are 100% complimentary for SheOwns community members.",
   },
 ];
 
@@ -45,7 +45,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section id="faq" className="py-28 px-6 md:px-12 bg-[#F8F5EF] text-[#2B2B2B] relative">
+    <section id="faq" className="bg-[#EFE9DF] py-24 px-6 md:px-12 overflow-hidden">
       <div className="max-w-4xl mx-auto space-y-16">
         
         {/* Header */}
@@ -56,7 +56,7 @@ export default function FAQSection() {
             viewport={{ once: true }}
             className="text-xs uppercase tracking-widest text-[#3B235A] font-semibold"
           >
-            Section 09 // Clarity & Insights
+            Clear Answers
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -74,7 +74,7 @@ export default function FAQSection() {
             transition={{ delay: 0.2 }}
             className="text-base text-[#2B2B2B]/80 font-light max-w-xl mx-auto"
           >
-            Everything you need to know about investing in Dubai real estate with She Owns.
+            Everything you need to know about investing in Dubai real estate with SheOwns.
           </motion.p>
         </div>
 

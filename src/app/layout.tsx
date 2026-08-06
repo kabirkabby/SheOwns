@@ -16,11 +16,11 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-  title: "She Owns | Women-First Real Estate Investment in Dubai",
+  title: "SheOwns | Women-First Real Estate Investment in Dubai",
   description:
     "An initiative by Aurex Privy in collaboration with Being She to empower women through real estate education, exclusive developer offers, flexible payment structures, and financial independence in Dubai.",
   keywords: [
-    "She Owns",
+    "SheOwns",
     "Aurex Privy",
     "Being She",
     "Dubai Real Estate",
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
     "Property Investment Dubai",
     "Women Empowerment",
   ],
-  authors: [{ name: "She Owns Initiative" }],
+  authors: [{ name: "SheOwns Initiative" }],
   openGraph: {
-    title: "She Owns | Women-First Real Estate Investment in Dubai",
+    title: "SheOwns | Women-First Real Estate Investment in Dubai",
     description:
       "Build wealth, confidence, and community through real estate investment in Dubai. Launched by Aurex Privy x Being She.",
     type: "website",

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDownRight, Sparkles, ShieldCheck, Users } from "lucide-react";
+import { ArrowDownRight, ShieldCheck, Users } from "lucide-react";
 import Image from "next/image";
 
 export default function HeroSection() {
@@ -11,7 +11,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero_new_bg.jpg"
-          alt="She Owns — Dubai"
+          alt="SheOwns — Dubai"
           fill
           priority
           unoptimized
@@ -23,17 +23,17 @@ export default function HeroSection() {
         <div className="max-w-2xl space-y-8">
 
           {/* Badge */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="inline-flex items-center space-x-2 bg-[#3B235A]/80 border border-[#D6BB88]/30 px-4 py-1.5 rounded-full backdrop-blur-md"
           >
-            <Sparkles className="w-3 h-3 text-[#D6BB88]" />
+            
             <span className="text-[10px] uppercase tracking-widest text-[#D6BB88] font-semibold">
-              Aurex Privy × Being She
+              An Aurex Privy Real Estate & Being She initiative
             </span>
-          </motion.div>
+          </motion.div> */}
 
           {/* Headline — empowering and positive */}
           <motion.div
@@ -42,24 +42,16 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="space-y-3"
           >
-            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-light leading-[1.1] text-[#F8F5EF] drop-shadow-md">
-              Your Wealth. Your Property.<br />
-              <span className="italic text-[#D6BB88]">Your Terms.</span>
+            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-light leading-[1.1] text-[#F8F5EF] drop-shadow-md my-10">
+            SheOwns<br />
+              <span className="italic text-[#D6BB88]">Do you yet?</span>
             </h1>
             <p className="text-lg sm:text-xl text-[#F8F5EF]/90 font-light leading-relaxed drop-shadow">
-              Dubai's first women-centric real estate initiative — built around education, expert guidance, and financial confidence.
-            </p>
+              Women invested AED 118 billion in Dubai real estate last year, ie. One in Three investors! SheOwns exists so the next wave signs with full knowledge, full confidence, and zero pressure. </p>
           </motion.div>
 
           {/* Sub-copy — one line */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-base text-[#F8F5EF]/85 font-light leading-relaxed max-w-lg drop-shadow"
-          >
-            The only thing between you and your first property investment is knowing how. We take care of that.
-          </motion.p>
+          
 
           {/* CTAs */}
           <motion.div
@@ -84,24 +76,24 @@ export default function HeroSection() {
           </motion.div>
 
           {/* Trust strip */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             className="flex flex-wrap items-center gap-6 pt-4 text-xs text-[#F8F5EF]/80 font-light"
           >
-            <div className="flex items-center space-x-2">
-              <Users className="w-4 h-4 text-[#D6BB88]" />
-              <span>15,000+ Women Community</span>
+            <div className="flex items-center space-x-2 font-bold">
+              
+              <span>Women only Community</span>
             </div>
             <div className="w-px h-4 bg-[#D6BB88]/30" />
-            <div className="flex items-center space-x-2">
-              <ShieldCheck className="w-4 h-4 text-[#D6BB88]" />
-              <span>Zero High-Pressure Sales</span>
+            <div className="flex items-center space-x-2 font-bold">
+             
+              <span>Advisory, not brokerage</span>
             </div>
             <div className="w-px h-4 bg-[#D6BB88]/30" />
-            <span>Education First, Always</span>
-          </motion.div>
+            <span className="font bold">Education First, Always</span>
+          </motion.div> */}
         </div>
       </div>
 

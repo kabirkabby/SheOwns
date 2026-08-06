@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin, Clock, ArrowUpRight } from "lucide-react";
+import { MapPin, ArrowUpRight } from "lucide-react";
 
 export default function WorkshopsCommunitySection() {
   return (

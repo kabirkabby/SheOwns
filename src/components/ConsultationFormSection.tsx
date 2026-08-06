@@ -55,7 +55,7 @@ export default function ConsultationFormSection() {
             </div>
             <div className="flex items-center space-x-3">
               <CheckCircle2 className="w-5 h-5 text-[#D6BB88]" />
-              <span>Access to 1% Monthly Developer Payment Options</span>
+              <span>Access to Customised Monthly Developer Payment Options for Members</span>
             </div>
             <div className="flex items-center space-x-3">
               <CheckCircle2 className="w-5 h-5 text-[#D6BB88]" />

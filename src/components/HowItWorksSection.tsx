@@ -8,7 +8,7 @@ const steps = [
     num: "01",
     title: "Learn",
     label: "Start with knowledge",
-    body: "Attend a free She Owns workshop or masterclass. No commitment required — just clarity.",
+    body: "Attend a free SheOwns workshop or masterclass. No commitment required — just clarity.",
     cta: { text: "See Upcoming Events", href: "#workshops" },
   },
   {
