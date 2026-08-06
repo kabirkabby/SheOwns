@@ -28,7 +28,7 @@ export default function IntroCover({ onDismiss }: IntroCoverProps) {
             opacity: 0,
             transition: { duration: 0.95, ease: [0.77, 0, 0.175, 1] },
           }}
-          className="fixed inset-0 z-[500] flex items-center bg-[#21102F] overflow-hidden text-[#F8F5EF] shadow-2xl"
+          className="fixed inset-0 z-[500] flex items-center bg-[#21102F] overflow-y-auto text-[#F8F5EF] shadow-2xl"
         >
           {/* Background Image: Purple Dubai Skyline */}
           <div className="absolute inset-0 z-0">
