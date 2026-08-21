@@ -33,7 +33,7 @@ export async function POST(req: Request) {
 
     const resendApiKey = process.env.RESEND_API_KEY;
     const notificationEmail = process.env.NOTIFICATION_EMAIL || "info@sheowns.com";
-    const fromEmail = process.env.RESEND_FROM_EMAIL || "SheOwns <onboarding@resend.dev>";
+    const fromEmail = process.env.RESEND_FROM_EMAIL || "SheOwns <leads@leads.sheownsdubai.com>";
     const sheetsWebhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL || process.env.WEBHOOK_URL;
 
     let emailResult = null;
@@ -43,10 +43,13 @@ export async function POST(req: Request) {
     if (resendApiKey) {
       try {
         const resend = new Resend(resendApiKey);
+        const toRecipients = notificationEmail.includes(",")
+          ? notificationEmail.split(",").map((e) => e.trim())
+          : notificationEmail;
 
         const emailRes = await resend.emails.send({
           from: fromEmail,
-          to: notificationEmail,
+          to: toRecipients,
           replyTo: email,
           subject: `✨ New ${source || "Circle Subscriber"}: ${email}`,
           html: `
