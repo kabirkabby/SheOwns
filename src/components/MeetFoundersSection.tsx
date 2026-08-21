@@ -10,20 +10,20 @@ const founders = [
     quote: "SheOwnsDubai was born from a simple idea - to create a dedicated real-estate platform designed specifically for women, giving them access to the knowledge, insight and guidance they need to make informed and confident decisions about property and wealth.",
     image: "/images/gaurav_sharma.jpg",
     credentials: [
-      "Dubai's leading boutique real estate advisory",
-      "Trusted by 500+ international investors",
-      "Specialist in women-first investment strategy",
+      "18+ Years of Dubai Market Experience",
+      "Advising International Investors on Strategic Property Decisions.",
+      "Building UAE’s first Women-Centric Real Estate Platform",
     ],
   },
   {
     name: "Aparna Bajpai",
     role: "Founder & President, Being She Association",
-    quote: "Women have always played a powerful role in building families, businesses and communities. Now, it is time to be equally present in the conversations that shape wealth and financial independence. SheOwns is a community where women can learn, question and make informed decisions about their financial future - with confidence, not hesitation.",
+    quote: "Women have always played a powerful role in building families, businesses and communities. Now, it is time to be equally present in the conversations that shape wealth and financial independence.",
     image: "/images/aparna_bajpai.jpg",
     credentials: [
-      "Asia's largest network of women leaders",
-      "15,000+ active community members",
-      "Hosted 200+ women empowerment events globally",
+      "Dubai's largest network of women leaders",
+      "5,000+ active community members",
+      "Hosted many women empowerment events",
     ],
   },
 ];
@@ -87,7 +87,7 @@ export default function MeetFoundersSection() {
                 </blockquote>
                 <ul className="space-y-2">
                   {credentials.map((c) => (
-                    <li key={c} className="text-sm text-[#2B2B2B]/70 font-light flex items-start space-x-2">
+                    <li key={c} className="text-md text-[#2B2B2B]/70 font-regular flex items-start space-x-2">
                       <span className="text-[#D6BB88] mt-1">—</span>
                       <span>{c}</span>
                     </li>
