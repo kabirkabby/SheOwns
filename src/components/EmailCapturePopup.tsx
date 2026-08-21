@@ -30,19 +30,27 @@ export default function EmailCapturePopup({ coverDismissed }: EmailCapturePopupP
     setDismissed(true);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
     setIsSubmitting(true);
 
-    setTimeout(() => {
+    try {
+      await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, source: "Website Circle Popup" }),
+      });
+    } catch (err) {
+      console.error("Popup subscription error:", err);
+    } finally {
       setIsSubmitting(false);
       setSubmitted(true);
       setTimeout(() => {
         setVisible(false);
         setDismissed(true);
       }, 3500);
-    }, 600);
+    }
   };
 
   return (

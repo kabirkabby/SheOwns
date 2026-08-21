@@ -12,11 +12,35 @@ export default function ConsultationFormSection() {
     timeline: "Next 1 - 3 Months",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/consultation", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to submit consultation request");
+      }
+
+      setSubmitted(true);
+    } catch (err: any) {
+      console.error("Submission failed:", err);
+      setErrorMessage(err.message || "Something went wrong. Please try again or message us directly on WhatsApp.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -202,11 +226,18 @@ export default function ConsultationFormSection() {
                 </div>
               </div>
 
+              {errorMessage && (
+                <div className="p-3.5 bg-red-500/10 border border-red-500/30 rounded-xl text-xs text-red-300">
+                  {errorMessage}
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-[#D6BB88] to-[#B89B62] text-[#21102F] font-semibold text-xs uppercase tracking-widest py-4 rounded-xl hover:scale-[1.01] transition-transform duration-300 shadow-xl"
+                disabled={isSubmitting}
+                className="w-full bg-gradient-to-r from-[#D6BB88] to-[#B89B62] text-[#21102F] font-semibold text-xs uppercase tracking-widest py-4 rounded-xl hover:scale-[1.01] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-xl flex items-center justify-center space-x-2"
               >
-                Confirm Consultation Request
+                <span>{isSubmitting ? "Submitting..." : "Confirm Consultation Request"}</span>
               </button>
 
               <div className="flex items-center justify-center space-x-2 text-[10px] uppercase tracking-wider text-[#F8F5EF]/60 pt-2">

@@ -4,9 +4,35 @@ import { motion } from "framer-motion";
 import { MessageCircle, ArrowUp, Globe, Mail, Share2 } from "lucide-react";
 import Image from "next/image";
 
+import { useState } from "react";
+
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    setIsSubmitting(true);
+
+    try {
+      await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, source: "Footer Newsletter Form" }),
+      });
+      setSubmitted(true);
+      setEmail("");
+    } catch (err) {
+      console.error("Footer subscription error:", err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -38,16 +64,27 @@ export default function Footer() {
             <h4 className="font-serif text-xl text-[#F8F5EF]">
               Receive Private Market Intelligence & Off-Market Allocations
             </h4>
-            <div className="flex flex-col sm:flex-row gap-2 pt-2">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="bg-[#21102F] border border-[#D6BB88]/30 rounded-xl px-4 py-2.5 text-xs text-[#F8F5EF] placeholder-[#F8F5EF]/40 focus:outline-none focus:border-[#D6BB88] grow"
-              />
-              <button className="bg-[#D6BB88] text-[#21102F] text-xs uppercase tracking-widest font-semibold px-6 py-2.5 rounded-xl hover:bg-[#E7D7B3] transition-colors shrink-0">
-                Subscribe
-              </button>
-            </div>
+            {submitted ? (
+              <p className="text-xs text-[#D6BB88] pt-2">✨ Thank you for subscribing to The SheOwns Circle!</p>
+            ) : (
+              <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2 pt-2">
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  className="bg-[#21102F] border border-[#D6BB88]/30 rounded-xl px-4 py-2.5 text-xs text-[#F8F5EF] placeholder-[#F8F5EF]/40 focus:outline-none focus:border-[#D6BB88] grow"
+                />
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="bg-[#D6BB88] text-[#21102F] text-xs uppercase tracking-widest font-semibold px-6 py-2.5 rounded-xl hover:bg-[#E7D7B3] disabled:opacity-50 transition-colors shrink-0"
+                >
+                  {isSubmitting ? "..." : "Subscribe"}
+                </button>
+              </form>
+            )}
           </div>
         </div>
 
