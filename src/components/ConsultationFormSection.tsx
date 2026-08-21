@@ -2,14 +2,17 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MessageCircle, CheckCircle2, Shield, ArrowRight, Lock } from "lucide-react";
+import { MessageCircle, CheckCircle2, Shield, ArrowRight, Lock, Calendar, Clock } from "lucide-react";
 
 export default function ConsultationFormSection() {
+  const todayStr = new Date().toISOString().split("T")[0];
+
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     phone: "",
-    timeline: "Next 1 - 3 Months",
+    preferredDate: todayStr,
+    preferredTimeSlot: "Morning (10:00 AM – 1:00 PM)",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -197,19 +200,38 @@ export default function ConsultationFormSection() {
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-xs uppercase tracking-wider text-[#D6BB88] mb-2 font-medium">
-                    Investment Readiness Timeline
-                  </label>
-                  <select
-                    value={formData.timeline}
-                    onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                    className="w-full bg-[#3B235A]/90 border border-[#D6BB88]/30 rounded-xl px-4 py-3 text-sm text-[#F8F5EF] focus:outline-none focus:border-[#D6BB88] transition-colors"
-                  >
-                    <option value="Ready Now">Ready Now (Active Investment)</option>
-                    <option value="Next 1 - 3 Months">Next 1 – 3 Months</option>
-                    <option value="Exploring & Educational">Exploring & Educational Purpose</option>
-                  </select>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs uppercase tracking-wider text-[#D6BB88] mb-2 font-medium flex items-center space-x-1.5">
+                      <Calendar className="w-3.5 h-3.5" />
+                      <span>Preferred Contact Date *</span>
+                    </label>
+                    <input
+                      type="date"
+                      required
+                      min={todayStr}
+                      value={formData.preferredDate}
+                      onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
+                      className="w-full bg-[#3B235A]/50 border border-[#D6BB88]/30 rounded-xl px-4 py-3 text-sm text-[#F8F5EF] focus:outline-none focus:border-[#D6BB88] transition-colors [color-scheme:dark]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs uppercase tracking-wider text-[#D6BB88] mb-2 font-medium flex items-center space-x-1.5">
+                      <Clock className="w-3.5 h-3.5" />
+                      <span>Preferred Time Slot *</span>
+                    </label>
+                    <select
+                      value={formData.preferredTimeSlot}
+                      onChange={(e) => setFormData({ ...formData, preferredTimeSlot: e.target.value })}
+                      className="w-full bg-[#3B235A]/90 border border-[#D6BB88]/30 rounded-xl px-4 py-3 text-sm text-[#F8F5EF] focus:outline-none focus:border-[#D6BB88] transition-colors"
+                    >
+                      <option value="Morning (10:00 AM – 1:00 PM)">Morning (10:00 AM – 1:00 PM)</option>
+                      <option value="Afternoon (1:00 PM – 5:00 PM)">Afternoon (1:00 PM – 5:00 PM)</option>
+                      <option value="Evening (5:00 PM – 8:00 PM)">Evening (5:00 PM – 8:00 PM)</option>
+                      <option value="Any Time / Flexible">Any Time / Flexible</option>
+                    </select>
+                  </div>
                 </div>
 
                 <div>

@@ -4,7 +4,7 @@ import { Resend } from "resend";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { fullName, email, phone, timeline, message } = body;
+    const { fullName, email, phone, preferredDate, preferredTimeSlot, timeline, message } = body;
 
     // Basic Validation
     if (!fullName || !email || !phone) {
@@ -20,12 +20,18 @@ export async function POST(req: Request) {
       timeStyle: "short",
     });
 
+    const contactTiming = preferredDate && preferredTimeSlot
+      ? `${preferredDate} (${preferredTimeSlot})`
+      : timeline || "Immediate / Flexible";
+
     const leadData = {
       timestamp,
       fullName,
       email,
       phone,
-      timeline: timeline || "Not Specified",
+      preferredDate: preferredDate || "Not Specified",
+      preferredTimeSlot: preferredTimeSlot || "Not Specified",
+      preferredContactTime: contactTiming,
       message: message || "No additional notes provided.",
       source: "Website Consultation Booking",
     };
@@ -46,7 +52,7 @@ export async function POST(req: Request) {
         from: fromEmail,
         to: notificationEmail,
         replyTo: email,
-        subject: `🌟 New Consultation Request: ${fullName} (${timeline})`,
+        subject: `🌟 New Consultation Request: ${fullName} (${contactTiming})`,
         html: `
           <!DOCTYPE html>
           <html>
@@ -99,8 +105,8 @@ export async function POST(req: Request) {
                 </div>
 
                 <div class="field">
-                  <div class="label">Investment Readiness Timeline</div>
-                  <div class="value" style="color: #B89B62; font-weight: 600;">${timeline}</div>
+                  <div class="label">Preferred Contact Time</div>
+                  <div class="value" style="color: #B89B62; font-weight: 600;">🗓️ ${contactTiming}</div>
                 </div>
 
                 <div class="field" style="border-bottom: none;">
@@ -150,7 +156,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({
       success: true,
-      message: "Your consultation request has been received. Our advisory team will reach out within 24 hours.",
+      message: "Your consultation request has been received. Our advisory team will reach out within your preferred time slot.",
     });
   } catch (error: any) {
     console.error("Consultation form submission error:", error);
