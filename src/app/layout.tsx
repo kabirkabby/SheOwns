@@ -25,14 +25,21 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://sheownsdubai.com"),
   title: {
-    default: "SheOwns | Women-First Real Estate Investment & Advisory in Dubai",
+    default: "SheOwns Dubai (She Owns) | Women-First Real Estate Investment & Advisory",
     template: "%s | SheOwns Dubai",
   },
   description:
-    "SheOwns is a private real estate advisory and empowerment initiative by Aurex Privy and Being She. Learn Dubai property investment, access developer-negotiated monthly payment plans, and build financial sovereignty with 15,000+ female leaders.",
+    "SheOwns (She Owns Dubai) is a premier real estate advisory and empowerment initiative by Aurex Privy and Being She. Learn Dubai property investment, access developer-negotiated monthly payment plans, and build financial sovereignty with 15,000+ female leaders in Dubai, UAE.",
   keywords: [
+    "She Owns",
+    "She Owns Dubai",
+    "She Owns Real Estate",
+    "She Owns Real Estate Dubai",
     "SheOwns",
     "SheOwns Dubai",
+    "SheOwns Real Estate",
+    "SheOwns UAE",
+    "She Owns UAE",
     "Women Real Estate Investors Dubai",
     "Aurex Privy Real Estate",
     "Being She",
@@ -57,11 +64,11 @@ export const metadata: Metadata = {
     canonical: "https://sheownsdubai.com",
   },
   openGraph: {
-    title: "SheOwns | Women-First Real Estate Investment in Dubai",
+    title: "SheOwns Dubai (She Owns) | Women-First Real Estate Investment",
     description:
       "A private advisory initiative by Aurex Privy × Being She. Learn Dubai property investment, access developer payment plans, and claim your seat in wealth ownership.",
     url: "https://sheownsdubai.com",
-    siteName: "SheOwns Dubai",
+    siteName: "SheOwns Dubai (She Owns)",
     locale: "en_US",
     type: "website",
     images: [
@@ -69,13 +76,13 @@ export const metadata: Metadata = {
         url: "/images/hero_new_bg.jpg",
         width: 1200,
         height: 630,
-        alt: "SheOwns — Women-First Real Estate Investment in Dubai",
+        alt: "SheOwns Dubai — Women-First Real Estate Investment in Dubai",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SheOwns | Women-First Real Estate Investment in Dubai",
+    title: "SheOwns Dubai (She Owns) | Women-First Real Estate Investment",
     description:
       "A private advisory initiative by Aurex Privy × Being She empowering women through real estate education and wealth ownership in Dubai.",
     images: ["/images/hero_new_bg.jpg"],
@@ -113,13 +120,21 @@ export default function RootLayout({
         "@type": "Organization",
         "@id": "https://sheownsdubai.com/#organization",
         name: "SheOwns",
+        alternateName: [
+          "She Owns",
+          "She Owns Dubai",
+          "SheOwns Dubai",
+          "She Owns Real Estate",
+          "SheOwns Real Estate",
+          "She Owns UAE",
+        ],
         url: "https://sheownsdubai.com",
         logo: {
           "@type": "ImageObject",
           url: "https://sheownsdubai.com/images/sheowns_logo.png",
         },
         description:
-          "Women-first real estate advisory initiative launched by Aurex Privy Real Estate in collaboration with Being She.",
+          "Women-first real estate advisory initiative launched by Aurex Privy Real Estate in collaboration with Being She in Dubai, UAE.",
         telephone: "+971501815561",
         address: {
           "@type": "PostalAddress",
@@ -139,6 +154,12 @@ export default function RootLayout({
         "@type": "RealEstateAgent",
         "@id": "https://sheownsdubai.com/#realestate",
         name: "SheOwns Advisory",
+        alternateName: [
+          "She Owns Advisory",
+          "She Owns Dubai",
+          "SheOwns Dubai",
+          "She Owns Real Estate Dubai",
+        ],
         parentOrganization: {
           "@id": "https://sheownsdubai.com/#organization",
         },

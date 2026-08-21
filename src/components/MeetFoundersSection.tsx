@@ -5,8 +5,8 @@ import Image from "next/image";
 
 const founders = [
   {
-    name: "Gaurav Sharma",
-    role: "Founder & Managing Director, Aurex Privy Real Estate",
+    name: "Gaurav Sharrma",
+    role: "Founder & CEO, Aurex Privy Real Estate",
     quote: "SheOwnsDubai was born from a simple idea - to create a dedicated real-estate platform designed specifically for women, giving them access to the knowledge, insight and guidance they need to make informed and confident decisions about property and wealth.",
     image: "/images/gaurav_sharma.jpg",
     credentials: [
