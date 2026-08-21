@@ -7,7 +7,7 @@ const founders = [
   {
     name: "Gaurav Sharma",
     role: "Founder & Managing Director, Aurex Privy Real Estate",
-    quote: "Real estate in Dubai is not complicated. It has just never been explained clearly to women. That's what SheOwns is here to change.",
+    quote: "SheOwnsDubai was born from a simple idea - to create a dedicated real-estate platform designed specifically for women, giving them access to the knowledge, insight and guidance they need to make informed and confident decisions about property and wealth.",
     image: "/images/gaurav_sharma.jpg",
     credentials: [
       "Dubai's leading boutique real estate advisory",
@@ -18,7 +18,7 @@ const founders = [
   {
     name: "Aparna Bajpai",
     role: "Founder & President, Being She Association",
-    quote: "Financial independence is not a privilege. It is a right — and for too long, women have been left out of the conversations that build it.",
+    quote: "Women have always played a powerful role in building families, businesses and communities. Now, it is time to be equally present in the conversations that shape wealth and financial independence. SheOwns is a community where women can learn, question and make informed decisions about their financial future - with confidence, not hesitation.",
     image: "/images/aparna_bajpai.jpg",
     credentials: [
       "Asia's largest network of women leaders",

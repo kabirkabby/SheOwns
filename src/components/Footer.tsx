@@ -135,7 +135,7 @@ export default function Footer() {
               <a href="#" className="hover:text-[#F8F5EF] transition-colors p-1" aria-label="YouTube">
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
               </a>
-              <a href="https://wa.me/971500000000" target="_blank" rel="noopener noreferrer" className="hover:text-[#F8F5EF] transition-colors p-1" aria-label="WhatsApp">
+              <a href="https://wa.me/971501815561" target="_blank" rel="noopener noreferrer" className="hover:text-[#F8F5EF] transition-colors p-1" aria-label="WhatsApp">
                 <MessageCircle className="w-4 h-4" />
               </a>
             </div>

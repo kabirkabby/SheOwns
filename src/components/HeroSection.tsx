@@ -49,7 +49,8 @@ export default function HeroSection() {
               <span className="italic text-[#D6BB88]">Do you yet?</span>
             </h1>
             <p className="text-base sm:text-xl text-[#F8F5EF]/90 font-light leading-relaxed drop-shadow max-w-xl">
-              Women invested AED 118 billion in Dubai real estate last year, i.e. One in Three investors! SheOwns exists so the next wave signs with full knowledge, full confidence, and zero pressure.
+             Because financial independence begins when you own the asset, not just the income.
+Real estate is no longer just a man's game. SheOwns exists to help women understand Dubai property, invest with clarity, and build wealth on their own terms.
             </p>
           </motion.div>
 

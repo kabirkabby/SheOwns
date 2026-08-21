@@ -87,7 +87,7 @@ export default function Navbar() {
           {/* Desktop Action Buttons */}
           <div className="hidden sm:flex items-center space-x-4">
             <a
-              href="https://wa.me/971500000000?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20She%20Owns"
+              href="https://wa.me/971501815561?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20SheOwns"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-1.5 text-xs tracking-wider text-[#D6BB88] hover:text-[#F8F5EF] transition-colors px-3 py-2 border border-[#D6BB88]/30 rounded-full hover:border-[#D6BB88]"
@@ -137,7 +137,7 @@ export default function Navbar() {
                 ))}
                 <div className="pt-4 border-t border-[#D6BB88]/20 flex flex-col space-y-3">
                   <a
-                    href="https://wa.me/971500000000?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20She%20Owns"
+                    href="https://wa.me/971501815561?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20SheOwns"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center space-x-2 text-xs tracking-wider text-[#D6BB88] py-2.5 border border-[#D6BB88]/40 rounded-full"
