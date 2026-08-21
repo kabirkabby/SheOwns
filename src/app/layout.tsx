@@ -123,13 +123,15 @@ export default function RootLayout({
         telephone: "+971501815561",
         address: {
           "@type": "PostalAddress",
-          streetAddress: "Level 14, Al Fattan Currency House, DIFC",
+          streetAddress: "Suite no. 1509, The Exchange Tower, Business Bay",
           addressLocality: "Dubai",
           addressCountry: "AE",
         },
         sameAs: [
-          "https://instagram.com",
-          "https://linkedin.com",
+          "https://instagram.com/aurexprivy",
+          "https://www.linkedin.com/in/gauravaurexprivy",
+          "https://aurexprivy.com",
+          "https://beingshe.com/",
           "https://wa.me/971501815561",
         ],
       },
@@ -144,7 +146,7 @@ export default function RootLayout({
         priceRange: "$$$$",
         address: {
           "@type": "PostalAddress",
-          streetAddress: "Level 14, Al Fattan Currency House, DIFC",
+          streetAddress: "Suite no. 1509, The Exchange Tower, Business Bay",
           addressLocality: "Dubai",
           addressCountry: "AE",
         },
