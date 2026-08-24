@@ -83,10 +83,10 @@ export default function WorkshopsCommunitySection() {
               {/* CTA */}
               <div className="pt-2">
                 <a
-                  href="#consultation"
-                  className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#D6BB88] to-[#B89B62] text-[#21102F] font-semibold text-xs uppercase tracking-widest px-8 py-4 rounded-full hover:scale-[1.02] transition-transform shadow-xl"
+                  href="/rsvp"
+                  className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#D6BB88] to-[#B89B62] text-[#21102F] font-semibold text-xs uppercase tracking-widest px-8 py-4 rounded-full hover:scale-[1.02] transition-transform shadow-xl cursor-pointer"
                 >
-                  <span>Reserve Your Seat</span>
+                  <span>Reserve Your VIP Seat</span>
                   <ArrowUpRight className="w-4 h-4" />
                 </a>
                 <p className="text-xs text-[#F8F5EF]/40 font-light mt-3">Limited seating. Invitation only.</p>

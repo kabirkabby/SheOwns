@@ -37,7 +37,7 @@ SheOwns was created to change that. </p>
           {[
             { num: "01", icon: BookOpen, title: "Education First", body: "We break down yields, payment schedules, and legal frameworks. No jargon, No pressure." },
             { num: "02", icon: Key, title: "Exclusive Access", body: "Developer-negotiated payment plans, reduced deposits, and off-market terms built for women." },
-            { num: "03", icon: Users, title: "Lifelong Community", body: "15,000+ women. Founder dinners, masterclasses, and peer advisory, long after you sign." },
+            { num: "03", icon: Users, title: "Lifelong Community", body: "5,000+ women. Founder dinners, masterclasses, and peer advisory, long after you sign." },
           ].map(({ num, icon: Icon, title, body }, idx) => (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
