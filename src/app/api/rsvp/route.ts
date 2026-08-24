@@ -23,9 +23,9 @@ export async function POST(req: Request) {
     const eventName = "SheOwns — Emirati Women's Day Open House";
     const eventDate = "Friday, 28 August 2026";
     const eventTime = "4:00 PM – 8:00 PM GST";
-    const venueName = "Danube Sales Gallery";
+    const venueName = "Danube Properties";
     const venueAddress = "Sheikh Zayed Road, Dubai, United Arab Emirates";
-    const googleMapsUrl = "https://maps.google.com/?q=Danube+Properties+Sales+Gallery+Sheikh+Zayed+Road+Dubai";
+    const googleMapsUrl = "https://maps.app.goo.gl/PViaFH2Kgag4ud3Y7";
 
     // Google Calendar URL Generator
     // Start: 2026-08-28 16:00 GST (12:00 UTC) -> End: 2026-08-28 20:00 GST (16:00 UTC)

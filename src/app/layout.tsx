@@ -186,7 +186,7 @@ export default function RootLayout({
         eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
         location: {
           "@type": "Place",
-          name: "Danube Sales Gallery",
+          name: "Danube Properties",
           address: {
             "@type": "PostalAddress",
             streetAddress: "Sheikh Zayed Road",

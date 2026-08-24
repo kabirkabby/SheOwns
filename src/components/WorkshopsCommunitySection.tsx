@@ -75,7 +75,7 @@ export default function WorkshopsCommunitySection() {
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-[#D6BB88] shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-base font-semibold text-[#F8F5EF]">Danube Sales Gallery</p>
+                  <p className="text-base font-semibold text-[#F8F5EF]">Danube Properties</p>
                   <p className="text-sm text-[#F8F5EF]/60 font-light">Dubai, UAE · High Tea will be served</p>
                 </div>
               </div>

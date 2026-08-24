@@ -30,7 +30,6 @@ export default function RSVPPage() {
     email: "",
     phone: "",
     guests: "1",
-    investmentInterest: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -40,8 +39,8 @@ export default function RSVPPage() {
 
   const eventDateStr = "Friday, 28 August 2026";
   const eventTimeStr = "4:00 PM – 8:00 PM (GST)";
-  const venueStr = "Danube Sales Gallery, Sheikh Zayed Road, Dubai";
-  const googleMapsUrl = "https://maps.google.com/?q=Danube+Properties+Sales+Gallery+Sheikh+Zayed+Road+Dubai";
+  const venueStr = "Danube Properties, Sheikh Zayed Road, Dubai";
+  const googleMapsUrl = "https://maps.app.goo.gl/PViaFH2Kgag4ud3Y7";
 
   const generateIcsDownload = () => {
     const icsData = `BEGIN:VCALENDAR
@@ -194,7 +193,7 @@ END:VCALENDAR`;
                   </div>
                   <div className="space-y-1">
                     <span className="text-[10px] uppercase tracking-widest text-[#D6BB88] font-semibold block">Venue & Hospitality</span>
-                    <p className="text-sm font-medium text-[#F8F5EF]">Danube Sales Gallery</p>
+                    <p className="text-sm font-medium text-[#F8F5EF]">Danube Properties</p>
                     <p className="text-xs text-[#F8F5EF]/60 font-light">Sheikh Zayed Road, Dubai · High Tea & Refreshments served · Valet available</p>
                   </div>
                 </div>
@@ -316,20 +315,6 @@ END:VCALENDAR`;
                       </select>
                     </div>
 
-                    {/* Specific Investment Interest */}
-                    <div>
-                      <label className="block text-xs uppercase tracking-wider text-[#D6BB88] mb-1.5 font-medium">
-                        Investment Focus or Questions (Optional)
-                      </label>
-                      <textarea
-                        rows={2}
-                        placeholder="e.g. Capital growth, Golden Visa qualifying properties, 1% monthly payment structures..."
-                        value={formData.investmentInterest}
-                        onChange={(e) => setFormData({ ...formData, investmentInterest: e.target.value })}
-                        className="w-full bg-[#3B235A]/50 border border-[#D6BB88]/30 rounded-xl px-4 py-2.5 text-sm text-[#F8F5EF] placeholder-[#F8F5EF]/40 focus:outline-none focus:border-[#D6BB88] transition-colors resize-none"
-                      />
-                    </div>
-
                     {errorMessage && (
                       <div className="p-3 bg-red-500/10 border border-red-500/30 rounded-xl text-xs text-red-300">
                         {errorMessage}
@@ -402,7 +387,7 @@ END:VCALENDAR`;
                       </div>
                       <div className="col-span-2">
                         <span className="text-[10px] text-[#F8F5EF]/60 block">Location</span>
-                        <span className="font-medium text-[#F8F5EF]">Danube Sales Gallery, Sheikh Zayed Road, Dubai</span>
+                        <span className="font-medium text-[#F8F5EF]">Danube Properties, Sheikh Zayed Road, Dubai</span>
                       </div>
                     </div>
                   </div>
