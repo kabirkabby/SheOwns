@@ -74,15 +74,15 @@ export default function Navbar() {
             {/* White Divider Line */}
             <div className="h-6 sm:h-7 w-[1px] bg-white/40 shrink-0" />
 
-            {/* Partner Emblem Logo */}
+            {/* Full Partner Logo (As-Is) */}
             <div className="flex items-center py-1">
               <Image
-                src="/images/eagle_logo_white.png"
-                alt="Partner Emblem Logo"
-                width={156}
+                src="/images/gulf_news_logo.png"
+                alt="Partner Logo"
+                width={1024}
                 height={150}
                 unoptimized
-                className="h-8 sm:h-10 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
+                className="h-7 sm:h-9 w-auto object-contain"
               />
             </div>
           </div>
