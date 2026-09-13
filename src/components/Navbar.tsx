@@ -72,19 +72,25 @@ export default function Navbar() {
             </a>
 
             {/* White Divider Line */}
-            <div className="h-6 sm:h-7 w-[1px] bg-white/40 shrink-0" />
+            <div className="h-5 sm:h-6 w-[1px] bg-white/30 shrink-0" />
 
-            {/* Full Partner Logo (As-Is) */}
-            <div className="flex items-center py-1">
+            {/* Gulf News Logo (Clickable) */}
+            <a
+              href="https://gulfnews.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center py-1 hover:opacity-80 transition-opacity"
+              aria-label="Gulf News"
+            >
               <Image
                 src="/images/gulf_news_logo.png"
-                alt="Partner Logo"
+                alt="Gulf News Logo"
                 width={1024}
                 height={150}
                 unoptimized
-                className="h-7 sm:h-9 w-auto object-contain"
+                className="h-5 sm:h-6.5 w-auto object-contain"
               />
-            </div>
+            </a>
           </div>
 
           {/* Desktop Nav Links */}
