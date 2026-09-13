@@ -58,17 +58,34 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-8xl mx-auto px-6 md:px-12 flex items-center justify-between">
-          {/* Brand Logo */}
-          <a href="#" className="flex items-center group py-1">
-            <Image
-              src="/images/sheowns_logo.png"
-              alt="SheOwns Logo"
-              width={260}
-              height={96}
-              unoptimized
-              className="h-13 sm:h-15 w-auto object-contain group-hover:opacity-90 transition-opacity"
-            />
-          </a>
+          {/* Brand Logos with White Divider */}
+          <div className="flex items-center space-x-3 sm:space-x-4">
+            <a href="#" className="flex items-center group py-1">
+              <Image
+                src="/images/sheowns_logo.png"
+                alt="SheOwns Logo"
+                width={260}
+                height={96}
+                unoptimized
+                className="h-12 sm:h-14 w-auto object-contain group-hover:opacity-90 transition-opacity"
+              />
+            </a>
+
+            {/* White Divider Line */}
+            <div className="h-6 sm:h-7 w-[1px] bg-white/40 shrink-0" />
+
+            {/* Partner Emblem Logo */}
+            <div className="flex items-center py-1">
+              <Image
+                src="/images/eagle_logo_white.png"
+                alt="Partner Emblem Logo"
+                width={156}
+                height={150}
+                unoptimized
+                className="h-8 sm:h-10 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
+              />
+            </div>
+          </div>
 
           {/* Desktop Nav Links */}
           <nav className="hidden lg:flex items-center space-x-4">
