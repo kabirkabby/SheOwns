@@ -36,9 +36,9 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#21102F] via-[#21102F]/70 to-[#21102F]/30 pointer-events-none" />
       </div>
 
-      {/* Main Content Container */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-12 pt-28 sm:pt-32 pb-24 sm:pb-36">
-        <div className="max-w-2xl space-y-6 sm:space-y-8">
+      {/* Main Content Container — Left-aligned with reduced left spacing */}
+      <div className="relative z-10 w-full px-5 sm:px-6 md:px-10 lg:px-12 pt-28 sm:pt-32 pb-24 sm:pb-36">
+        <div className="max-w-xl lg:max-w-2xl space-y-6 sm:space-y-8">
 
           {/* Headline — empowering and positive */}
           <motion.div
@@ -85,7 +85,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="pt-6 sm:pt-8 border-t border-white/15"
           >
-            <p className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#D6BB88] font-semibold mb-4">
+            <p className="text-[9px] sm:text-[10.5px] uppercase tracking-[0.2em] text-[#D6BB88]/90 font-medium mb-3">
               {t.hero.presentedBy}
             </p>
             <div className="flex flex-wrap items-center gap-5 sm:gap-7">
