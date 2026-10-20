@@ -9,86 +9,72 @@ const galleryImages = [
   {
     src: "/images/past_events/event_01.jpg",
     alt: "SheOwns gathering and community keynote",
-    width: 1200,
-    height: 794,
+    aspect: "aspect-[4/3]",
   },
   {
     src: "/images/past_events/event_02.jpg",
     alt: "SheOwns private event attendee discussion",
-    width: 1200,
-    height: 794,
+    aspect: "aspect-[4/5]",
   },
   {
     src: "/images/past_events/event_03.jpg",
     alt: "SheOwns women investor conclave session",
-    width: 1200,
-    height: 794,
+    aspect: "aspect-[1/1]",
   },
   {
     src: "/images/past_events/event_04.jpg",
     alt: "SheOwns networking and roundtable discussion",
-    width: 1200,
-    height: 794,
+    aspect: "aspect-[3/4]",
   },
   {
     src: "/images/past_events/event_05.jpg",
     alt: "SheOwns presentation and guest speakers",
-    width: 1200,
-    height: 794,
+    aspect: "aspect-[16/10]",
   },
   {
     src: "/images/past_events/event_06.jpg",
     alt: "SheOwns audience and female leadership gathering",
-    width: 1200,
-    height: 794,
+    aspect: "aspect-[3/4]",
   },
   {
     src: "/images/past_events/event_07.jpg",
     alt: "SheOwns community salon in Dubai",
-    width: 1200,
-    height: 800,
+    aspect: "aspect-[4/3]",
   },
   {
     src: "/images/past_events/event_08.jpg",
     alt: "SheOwns property workshop and masterclass",
-    width: 1200,
-    height: 800,
+    aspect: "aspect-[4/5]",
   },
   {
     src: "/images/past_events/event_09.jpg",
     alt: "SheOwns investor panel and dialogue",
-    width: 1200,
-    height: 800,
+    aspect: "aspect-[16/10]",
   },
   {
     src: "/images/past_events/event_10.jpg",
     alt: "SheOwns interactive clinic for women investors",
-    width: 1200,
-    height: 800,
+    aspect: "aspect-[1/1]",
   },
   {
     src: "/images/past_events/event_11.jpg",
     alt: "SheOwns networking reception and moments",
-    width: 1200,
-    height: 800,
+    aspect: "aspect-[4/5]",
   },
   {
     src: "/images/past_events/event_12.jpg",
     alt: "SheOwns executive discussion and mentorship",
-    width: 1200,
-    height: 800,
+    aspect: "aspect-[3/4]",
   },
   {
     src: "/images/past_events/event_13.jpg",
     alt: "SheOwns evening conclave in Dubai",
-    width: 1200,
-    height: 800,
+    aspect: "aspect-[1/1]",
   },
   {
     src: "/images/past_events/event_14.jpg",
     alt: "SheOwns private investor gathering",
-    width: 1200,
-    height: 800,
+    aspect: "aspect-[4/5]",
   },
 ];
 
@@ -113,19 +99,19 @@ export default function PastEventsSection() {
   }, [lightboxIndex]);
 
   return (
-    <section id="past-events" className="bg-[#21102F] text-[#F8F5EF] py-24 sm:py-28 px-6 md:px-12 relative overflow-hidden">
+    <section id="past-events" className="bg-[#21102F] text-[#F8F5EF] py-20 sm:py-24 px-4 sm:px-6 md:px-12 relative overflow-hidden">
       {/* Ambient background glows */}
       <div className="absolute top-1/4 -left-48 w-96 h-96 bg-[#D6BB88]/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-[#3B235A]/50 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto relative z-10 space-y-14">
+      <div className="max-w-7xl mx-auto relative z-10 space-y-10 sm:space-y-12">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="space-y-4 max-w-2xl"
+          className="space-y-3 sm:space-y-4 max-w-2xl"
         >
           <div className="inline-flex items-center space-x-2 bg-white/5 border border-[#D6BB88]/30 px-3.5 py-1.5 rounded-full">
             <span className="text-[10px] sm:text-xs uppercase tracking-widest text-[#D6BB88] font-semibold">
@@ -133,34 +119,34 @@ export default function PastEventsSection() {
             </span>
           </div>
 
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-light text-[#F8F5EF] leading-[1.15]">
+          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-light text-[#F8F5EF] leading-[1.15]">
             Moments from our past events.
           </h2>
-          <p className="text-base sm:text-lg text-[#F8F5EF]/75 font-light leading-relaxed">
+          <p className="text-sm sm:text-base text-[#F8F5EF]/75 font-light leading-relaxed">
             A look into our private conclaves, masterclasses, and salons uniting women investors across Dubai.
           </p>
         </motion.div>
 
-        {/* Masonry Image Grid */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+        {/* Masonry Image Grid — Tighter spacing, subtle rounded edges, varied heights */}
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-3 sm:gap-4 [column-fill:_balance]">
           {galleryImages.map((img, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: (index % 6) * 0.08 }}
+              transition={{ duration: 0.6, delay: (index % 6) * 0.05 }}
               onClick={() => setLightboxIndex(index)}
-              className="break-inside-avoid relative overflow-hidden rounded-2xl border border-[#D6BB88]/20 group bg-[#2A183D] shadow-xl cursor-pointer"
+              className="break-inside-avoid mb-3 sm:mb-4 relative overflow-hidden rounded-lg border border-[#D6BB88]/20 group bg-[#2A183D] shadow-md cursor-pointer hover:border-[#D6BB88]/50 transition-colors"
             >
-              <div className="relative overflow-hidden">
+              <div className={`relative w-full ${img.aspect} overflow-hidden`}>
                 <Image
                   src={img.src}
                   alt={img.alt}
-                  width={img.width}
-                  height={img.height}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   unoptimized
-                  className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 {/* Subtle sheen overlay on hover */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#21102F]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
@@ -183,7 +169,7 @@ export default function PastEventsSection() {
             {/* Close button */}
             <button
               onClick={() => setLightboxIndex(null)}
-              className="absolute top-6 right-6 text-white/80 hover:text-white p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-50"
+              className="absolute top-6 right-6 text-white/80 hover:text-white p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-50 cursor-pointer"
               aria-label="Close"
             >
               <X className="w-6 h-6" />
@@ -197,7 +183,7 @@ export default function PastEventsSection() {
                   prev !== null ? (prev - 1 + galleryImages.length) % galleryImages.length : 0
                 );
               }}
-              className="absolute left-4 sm:left-8 text-white/80 hover:text-white p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-50"
+              className="absolute left-4 sm:left-8 text-white/80 hover:text-white p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-50 cursor-pointer"
               aria-label="Previous"
             >
               <ChevronLeft className="w-6 h-6" />
@@ -211,7 +197,7 @@ export default function PastEventsSection() {
                   prev !== null ? (prev + 1) % galleryImages.length : 0
                 );
               }}
-              className="absolute right-4 sm:right-8 text-white/80 hover:text-white p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-50"
+              className="absolute right-4 sm:right-8 text-white/80 hover:text-white p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-50 cursor-pointer"
               aria-label="Next"
             >
               <ChevronRight className="w-6 h-6" />
@@ -228,13 +214,13 @@ export default function PastEventsSection() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.2 }}
-                className="relative max-w-full max-h-full rounded-2xl overflow-hidden border border-[#D6BB88]/30 shadow-2xl"
+                className="relative max-w-full max-h-full rounded-lg overflow-hidden border border-[#D6BB88]/30 shadow-2xl"
               >
                 <Image
                   src={galleryImages[lightboxIndex].src}
                   alt={galleryImages[lightboxIndex].alt}
-                  width={galleryImages[lightboxIndex].width}
-                  height={galleryImages[lightboxIndex].height}
+                  width={1200}
+                  height={800}
                   unoptimized
                   className="max-h-[80vh] w-auto h-auto object-contain"
                 />
