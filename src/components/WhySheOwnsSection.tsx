@@ -3,62 +3,21 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ShieldCheck, BookOpen, Key, Users, FileText, Percent, ChevronLeft, ChevronRight } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
-const pillars = [
-  {
-    num: "01",
-    title: "Financial Education",
-    subtitle: "Knowledge Before Action",
-    icon: BookOpen,
-    body: "Workshops, masterclasses, and 1-on-1 sessions that explain exactly how Dubai real estate works — before anyone asks you to sign anything.",
-    highlights: ["Yield Calculations", "Market Cycles", "Zero Sales Pressure"],
-  },
-  {
-    num: "02",
-    title: "1-on-1 Advisory",
-    subtitle: "Dedicated Senior Counsel",
-    icon: Users,
-    body: "A senior Aurex Privy advisor, dedicated to you. We map your goals, budget, and timeline — with zero obligation to proceed.",
-    highlights: ["Personalized Strategy", "Liquidity Mapping", "Private Counsel"],
-  },
-  {
-    num: "03",
-    title: "Exclusive Developer Terms",
-    subtitle: "Off-Market Privileges",
-    icon: Key,
-    body: "Lower entry deposits and bespoke payment structures negotiated specifically for SheOwns members. Not available to the public.",
-    highlights: ["Pre-Launch Access", "Reduced Entry Deposit", "Bespoke Allocations"],
-  },
-  {
-    num: "04",
-    title: "SheOwns Negotiated Payment Plans",
-    subtitle: "Tailored Investment Structures",
-    icon: Percent,
-    body: "Bespoke payment structures mapped directly to your cash flow. Invest comfortably with flexible monthly schedules negotiated specifically for SheOwns members.",
-    highlights: ["Customised Schedules", "Cash Flow Alignment", "Member Privileges"],
-  },
-  {
-    num: "05",
-    title: "Legal & Contract Clarity",
-    subtitle: "Red Flag Protection",
-    icon: FileText,
-    body: "Every contract reviewed. Every clause explained. The 'red flag files' — decoded before you're asked to commit a single dirham.",
-    highlights: ["DLD Escrow Vetting", "Clause Analysis", "RERA Regulated"],
-  },
-  {
-    num: "06",
-    title: "The Being She Network",
-    subtitle: "Lifelong Community",
-    icon: ShieldCheck,
-    body: "Join 15,000+ women investors across UAE and India. Founder dinners, closed-door sessions, and a community that celebrates your milestones.",
-    highlights: ["15,000+ Female Leaders", "Founder Dinners", "Peer Advisory"],
-  },
-];
+const pillarIcons = [BookOpen, Users, Key, Percent, FileText, ShieldCheck];
 
 export default function WhySheOwnsSection() {
+  const { t, isRtl } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
-  const activePillar = pillars[activeIndex];
+
+  const pillars = t.whySheOwns.pillars.map((p, idx) => ({
+    ...p,
+    icon: pillarIcons[idx] || BookOpen,
+  }));
+
+  const activePillar = pillars[activeIndex] || pillars[0];
   const ActiveIcon = activePillar.icon;
 
   const handleMobileScroll = () => {
@@ -96,14 +55,14 @@ export default function WhySheOwnsSection() {
           className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end"
         >
           <div className="lg:col-span-7 space-y-4">
-            <div className="inline-flex items-center space-x-2 bg-[#3B235A]/10 border border-[#3B235A]/20 px-3.5 py-1.5 rounded-full">
+            <div className="inline-flex items-center space-x-2 rtl:space-x-reverse bg-[#3B235A]/10 border border-[#3B235A]/20 px-3.5 py-1.5 rounded-full">
               <span className="text-xs uppercase tracking-widest text-[#3B235A] font-semibold">
-                The Six Commitments
+                {t.whySheOwns.tag}
               </span>
             </div>
             <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-light text-[#21102F] leading-[1.15]">
-              What SheOwns{" "}
-              <span className="italic text-[#3B235A]">gives you.</span>
+              {t.whySheOwns.heading}{" "}
+              <span className="italic text-[#3B235A]">{t.whySheOwns.headingItalic}</span>
             </h2>
           </div>
         </motion.div>
@@ -168,14 +127,14 @@ export default function WhySheOwnsSection() {
                   {/* Bottom Action Bar */}
                   <div className="pt-4 border-t border-[#D6BB88]/20 flex items-center justify-between relative z-10 mt-4">
                     <span className="text-[11px] uppercase tracking-widest text-[#D6BB88]/80 font-medium">
-                      Pillar {pillar.num} of 06
+                      {isRtl ? `الركيزة ${pillar.num} من ٠٦` : `Pillar ${pillar.num} of 06`}
                     </span>
                     <a
                       href="#consultation"
-                      className="inline-flex items-center space-x-1 text-xs uppercase tracking-widest text-[#D6BB88] font-semibold"
+                      className="inline-flex items-center space-x-1 rtl:space-x-reverse text-xs uppercase tracking-widest text-[#D6BB88] font-semibold"
                     >
-                      <span>Book Consultation</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <span>{t.navbar.bookConsultation}</span>
+                      <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
                     </a>
                   </div>
 
@@ -281,14 +240,14 @@ export default function WhySheOwnsSection() {
               {/* Bottom Action Bar */}
               <div className="pt-6 border-t border-[#D6BB88]/20 flex items-center justify-between relative z-10 mt-6">
                 <span className="text-xs uppercase tracking-widest text-[#D6BB88]/80 font-medium">
-                  Pillar {activePillar.num} of 06
+                  {isRtl ? `الركيزة ${activePillar.num} من ٠٦` : `Pillar ${activePillar.num} of 06`}
                 </span>
                 <a
                   href="#consultation"
-                  className="inline-flex items-center space-x-1.5 text-xs uppercase tracking-widest text-[#D6BB88] hover:text-[#F8F5EF] font-semibold transition-colors group"
+                  className="inline-flex items-center space-x-1.5 rtl:space-x-reverse text-xs uppercase tracking-widest text-[#D6BB88] hover:text-[#F8F5EF] font-semibold transition-colors group"
                 >
-                  <span>Book Consultation</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  <span>{t.navbar.bookConsultation}</span>
+                  <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
                 </a>
               </div>
 
@@ -315,7 +274,7 @@ export default function WhySheOwnsSection() {
                       : "bg-[#F8F5EF]/80 text-[#2B2B2B] border-[#D6BB88]/30 hover:bg-[#F8F5EF] hover:border-[#D6BB88]/70"
                   }`}
                 >
-                  <div className="flex items-center space-x-5">
+                  <div className="flex items-center space-x-5 rtl:space-x-reverse">
                     {/* Index Number */}
                     <span
                       className={`font-serif text-2xl sm:text-3xl font-light transition-colors ${

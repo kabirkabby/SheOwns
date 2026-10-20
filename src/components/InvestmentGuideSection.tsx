@@ -3,8 +3,10 @@
 import { motion } from "framer-motion";
 import { BookOpen, ArrowRight } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function InvestmentGuideSection() {
+  const { t, isRtl } = useLanguage();
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -45,30 +47,24 @@ export default function InvestmentGuideSection() {
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-0">
 
             {/* Left — editorial context */}
-            <div className="lg:col-span-7 p-10 sm:p-14 space-y-8 border-b lg:border-b-0 lg:border-r border-[#D6BB88]/20">
+            <div className="lg:col-span-7 p-10 sm:p-14 space-y-8 border-b lg:border-b-0 lg:border-r rtl:lg:border-r-0 rtl:lg:border-l border-[#D6BB88]/20">
               <div className="w-12 h-12 rounded-2xl bg-[#D6BB88]/15 border border-[#D6BB88]/30 flex items-center justify-center text-[#D6BB88]">
                 <BookOpen className="w-6 h-6" />
               </div>
 
               <div className="space-y-3">
-                <span className="text-xs uppercase tracking-widest text-[#D6BB88] font-semibold">Not ready to invest yet?</span>
-                <h2 className="font-serif text-4xl sm:text-5xl text-[#F8F5EF] font-light leading-tight">
-                  Start here.{" "}
-                  <span className="italic text-[#D6BB88]">For free.</span>
+                <span className="text-xs uppercase tracking-widest text-[#D6BB88] font-semibold">{t.guide.tag}</span>
+                <h2 className="font-serif text-3xl sm:text-5xl text-[#F8F5EF] font-light leading-tight">
+                  {t.guide.heading}
                 </h2>
-                <p className="text-lg text-[#F8F5EF]/75 font-light leading-relaxed max-w-md">
-                  The SheOwns Guide to Dubai Real Estate — written for first-time women investors. No jargon. No pressure. Just clarity.
+                <p className="text-base sm:text-lg text-[#F8F5EF]/75 font-light leading-relaxed max-w-md">
+                  {t.guide.body}
                 </p>
               </div>
 
               <ul className="space-y-3">
-                {[
-                  "How off-plan investing actually works",
-                  "The contract red flags that cost buyers millions",
-                  "Customised monthly payment plans, fully explained",
-                  "Your rights as a foreign woman investor in Dubai",
-                ].map((item) => (
-                  <li key={item} className="flex items-start space-x-3 text-base text-[#F8F5EF]/80 font-light">
+                {t.guide.bullets.map((item) => (
+                  <li key={item} className="flex items-start space-x-3 rtl:space-x-reverse text-base text-[#F8F5EF]/80 font-light">
                     <span className="text-[#D6BB88] font-bold mt-0.5 shrink-0">•</span>
                     <span>{item}</span>
                   </li>
@@ -81,8 +77,8 @@ export default function InvestmentGuideSection() {
               {!submitted ? (
                 <>
                   <div className="space-y-1">
-                    <h3 className="font-serif text-2xl text-[#F8F5EF] font-light">Get the free guide</h3>
-                    <p className="text-sm text-[#F8F5EF]/60 font-light">We'll send it straight to your inbox.</p>
+                    <h3 className="font-serif text-2xl text-[#F8F5EF] font-light">{t.guide.heading}</h3>
+                    <p className="text-sm text-[#F8F5EF]/60 font-light">{t.guide.tag}</p>
                   </div>
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <input
@@ -90,19 +86,17 @@ export default function InvestmentGuideSection() {
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Your email address"
+                      placeholder={t.guide.emailPlaceholder}
                       className="w-full bg-[#3B235A]/60 border border-[#D6BB88]/30 rounded-xl px-5 py-4 text-base text-[#F8F5EF] placeholder-[#F8F5EF]/40 focus:outline-none focus:border-[#D6BB88] transition-colors"
                     />
                     <button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-[#D6BB88] to-[#B89B62] text-[#21102F] font-semibold text-sm uppercase tracking-widest py-4 rounded-xl hover:scale-[1.01] transition-transform duration-300 shadow-xl flex items-center justify-center space-x-2"
+                      disabled={isSubmitting}
+                      className="w-full bg-gradient-to-r from-[#D6BB88] to-[#B89B62] text-[#21102F] font-semibold text-sm uppercase tracking-widest py-4 rounded-xl hover:scale-[1.01] transition-transform duration-300 shadow-xl flex items-center justify-center space-x-2 rtl:space-x-reverse cursor-pointer disabled:opacity-50"
                     >
-                      <span>Send Me the Guide</span>
-                      <ArrowRight className="w-4 h-4" />
+                      <span>{t.guide.downloadBtn}</span>
+                      <ArrowRight className="w-4 h-4 rtl:rotate-180" />
                     </button>
-                    <p className="text-center text-xs text-[#F8F5EF]/40 font-light">
-                      No spam. Unsubscribe anytime.
-                    </p>
                   </form>
                 </>
               ) : (
@@ -114,10 +108,9 @@ export default function InvestmentGuideSection() {
                   <div className="w-14 h-14 rounded-full bg-[#D6BB88] flex items-center justify-center mx-auto">
                     <BookOpen className="w-7 h-7 text-[#21102F]" />
                   </div>
-                  <h3 className="font-serif text-2xl text-[#F8F5EF]">On its way!</h3>
+                  <h3 className="font-serif text-2xl text-[#F8F5EF]">{t.guide.successMsg}</h3>
                   <p className="text-base text-[#F8F5EF]/70 font-light">
-                    Check your inbox. Your guide is heading to{" "}
-                    <span className="text-[#D6BB88]">{email}</span>.
+                    <span className="text-[#D6BB88]">{email}</span>
                   </p>
                 </motion.div>
               )}

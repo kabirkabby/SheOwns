@@ -3,8 +3,11 @@
 import { motion } from "framer-motion";
 import { ArrowDownRight } from "lucide-react";
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function HeroSection() {
+  const { t, isRtl } = useLanguage();
+
   return (
     <section className="relative min-h-[100vh] bg-[#21102F] text-[#F8F5EF] flex items-center overflow-hidden">
       {/* Desktop Background (Landscape 16:9) */}
@@ -45,11 +48,11 @@ export default function HeroSection() {
             className="space-y-4"
           >
             <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-light leading-[1.12] text-[#F8F5EF] drop-shadow-lg my-6 sm:my-10">
-              SheOwns<br />
-              <span className="italic text-[#D6BB88]">Do you yet?</span>
+              {t.hero.titleLine1}<br />
+              <span className="italic text-[#D6BB88]">{t.hero.titleLine2}</span>
             </h1>
             <p className="text-base sm:text-xl text-[#F8F5EF]/90 font-light leading-relaxed drop-shadow max-w-xl">
-             Real estate is no longer just a man's game. SheOwns exists to help women understand Dubai property, invest with clarity, and build wealth on their own terms.
+              {t.hero.subtitle}
             </p>
           </motion.div>
 
@@ -62,16 +65,16 @@ export default function HeroSection() {
           >
             <a
               href="#consultation"
-              className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-[#D6BB88] via-[#E7D7B3] to-[#B89B62] px-7 py-4 rounded-full text-xs uppercase tracking-widest text-[#21102F] font-semibold hover:scale-[1.02] transition-transform shadow-xl text-center"
+              className="group inline-flex items-center justify-center space-x-2 rtl:space-x-reverse bg-gradient-to-r from-[#D6BB88] via-[#E7D7B3] to-[#B89B62] px-7 py-4 rounded-full text-xs uppercase tracking-widest text-[#21102F] font-semibold hover:scale-[1.02] transition-transform shadow-xl text-center"
             >
-              <span>Book a Private Consultation</span>
-              <ArrowDownRight className="w-4 h-4 group-hover:rotate-45 transition-transform duration-300 shrink-0" />
+              <span>{t.hero.ctaPrimary}</span>
+              <ArrowDownRight className="w-4 h-4 group-hover:rotate-45 rtl:group-hover:-rotate-45 transition-transform duration-300 shrink-0" />
             </a>
             <a
               href="#property-show"
               className="text-xs uppercase tracking-widest text-[#F8F5EF]/90 hover:text-[#D6BB88] transition-colors underline underline-offset-4 decoration-[#D6BB88]/40 text-center py-2 sm:py-0"
             >
-              The Property Show →
+              {t.hero.ctaSecondary}
             </a>
           </motion.div>
 
@@ -83,7 +86,7 @@ export default function HeroSection() {
             className="pt-6 sm:pt-8 border-t border-white/15"
           >
             <p className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#D6BB88] font-semibold mb-4">
-              Presented by Aurex Privy & Gulf News · Sponsored by BeingShe
+              {t.hero.presentedBy}
             </p>
             <div className="flex flex-wrap items-center gap-5 sm:gap-7">
               {/* Aurex Privy Logo */}

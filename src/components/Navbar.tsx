@@ -2,21 +2,23 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowUpRight, MessageCircle } from "lucide-react";
+import { Menu, X, ArrowUpRight, MessageCircle, Globe } from "lucide-react";
 import Image from "next/image";
-
-const navLinks = [
-  { name: "About", href: "#about" },
-  { name: "Why SheOwns", href: "#why-she-owns" },
-  { name: "Founders", href: "#founders" },
-  { name: "The Property Show", href: "#property-show" },
-  { name: "Past Events", href: "#past-events" },
-  { name: "FAQ", href: "#faq" },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { toggleLocale, t, isRtl } = useLanguage();
+
+  const navLinks = [
+    { name: t.navbar.about, href: "#about" },
+    { name: t.navbar.whySheOwns, href: "#why-she-owns" },
+    { name: t.navbar.founders, href: "#founders" },
+    { name: t.navbar.propertyShow, href: "#property-show" },
+    { name: t.navbar.pastEvents, href: "#past-events" },
+    { name: t.navbar.faq, href: "#faq" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,13 +41,13 @@ export default function Navbar() {
           scrolled ? "max-h-0 opacity-0 pointer-events-none" : "max-h-24 opacity-100"
         }`}
       >
-        <div className="bg-gradient-to-r from-[#E7D7B3] via-[#D6BB88] to-[#B89B62] text-[#21102F] text-[10px] sm:text-xs py-1.5 px-3 text-center font-medium tracking-wide shadow-sm flex items-center justify-center space-x-1 sm:space-x-1.5 flex-wrap">
-          <span>SheOwns The Property Show · 12th December, 2026 · Registrations Open ·</span>
+        <div className="bg-gradient-to-r from-[#E7D7B3] via-[#D6BB88] to-[#B89B62] text-[#21102F] text-[10px] sm:text-xs py-1.5 px-3 text-center font-medium tracking-wide shadow-sm flex items-center justify-center space-x-1 sm:space-x-1.5 rtl:space-x-reverse flex-wrap">
+          <span>{t.navbar.announcement}</span>
           <a
             href="/rsvp"
             className="underline underline-offset-2 font-bold hover:text-[#3B235A] transition-colors cursor-pointer"
           >
-            Register now ↗
+            {t.navbar.announcementCta}
           </a>
         </div>
       </div>
@@ -60,7 +62,7 @@ export default function Navbar() {
       >
         <div className="max-w-8xl mx-auto px-6 md:px-12 flex items-center justify-between">
           {/* Brand Logos with White Divider */}
-          <div className="flex items-center space-x-3 sm:space-x-4">
+          <div className="flex items-center space-x-3 sm:space-x-4 rtl:space-x-reverse">
             <a href="#" className="flex items-center group py-1">
               <Image
                 src="/images/sheowns_logo.png"
@@ -95,7 +97,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center space-x-4">
+          <nav className="hidden lg:flex items-center space-x-4 rtl:space-x-reverse">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -109,23 +111,33 @@ export default function Navbar() {
           </nav>
 
           {/* Desktop Action Buttons */}
-          <div className="hidden sm:flex items-center space-x-4">
+          <div className="hidden sm:flex items-center space-x-3 rtl:space-x-reverse">
+            {/* Language Switcher */}
+            <button
+              onClick={toggleLocale}
+              className="flex items-center space-x-1.5 rtl:space-x-reverse text-xs tracking-wider text-[#F8F5EF] hover:text-[#D6BB88] transition-colors px-3 py-2 border border-[#D6BB88]/40 rounded-full hover:border-[#D6BB88] bg-white/5 cursor-pointer font-medium"
+              aria-label="Switch Language"
+            >
+              <Globe className="w-3.5 h-3.5 text-[#D6BB88]" />
+              <span>{t.navbar.langButton}</span>
+            </button>
+
             <a
               href="https://wa.me/971501815561?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20SheOwns"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-1.5 text-xs tracking-wider text-[#D6BB88] hover:text-[#F8F5EF] transition-colors px-3 py-2 border border-[#D6BB88]/30 rounded-full hover:border-[#D6BB88]"
+              className="flex items-center space-x-1.5 rtl:space-x-reverse text-xs tracking-wider text-[#D6BB88] hover:text-[#F8F5EF] transition-colors px-3 py-2 border border-[#D6BB88]/30 rounded-full hover:border-[#D6BB88]"
             >
               <MessageCircle className="w-3.5 h-3.5" />
-              <span>WhatsApp</span>
+              <span>{t.navbar.whatsapp}</span>
             </a>
 
             <a
               href="#consultation"
               className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-[#D6BB88] to-[#B89B62] px-6 py-2.5 text-xs font-medium uppercase tracking-widest text-[#21102F] transition-all duration-300 hover:scale-[1.02] shadow-md hover:shadow-[#D6BB88]/20"
             >
-              <span>Book Consultation</span>
-              <ArrowUpRight className="ml-1 w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <span>{t.navbar.bookConsultation}</span>
+              <ArrowUpRight className="ml-1 rtl:mr-1 rtl:ml-0 w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 rtl:group-hover:-translate-x-0.5" />
             </a>
           </div>
 
@@ -149,6 +161,21 @@ export default function Navbar() {
               className="lg:hidden bg-[#21102F]/95 border-b border-[#D6BB88]/20 backdrop-blur-xl px-6 py-6 mt-2"
             >
               <div className="flex flex-col space-y-4">
+                {/* Mobile Language Switcher */}
+                <div className="pb-3 border-b border-[#D6BB88]/20 flex items-center justify-between">
+                  <span className="text-xs text-[#F8F5EF]/60 font-light">Language / اللغة</span>
+                  <button
+                    onClick={() => {
+                      toggleLocale();
+                      setMobileMenuOpen(false);
+                    }}
+                    className="flex items-center space-x-1.5 rtl:space-x-reverse text-xs tracking-wider text-[#21102F] bg-gradient-to-r from-[#D6BB88] to-[#B89B62] font-semibold px-4 py-1.5 rounded-full shadow-sm cursor-pointer"
+                  >
+                    <Globe className="w-3.5 h-3.5" />
+                    <span>{t.navbar.langButton}</span>
+                  </button>
+                </div>
+
                 {navLinks.map((link) => (
                   <a
                     key={link.name}
@@ -164,17 +191,17 @@ export default function Navbar() {
                     href="https://wa.me/971501815561?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20SheOwns"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center space-x-2 text-xs tracking-wider text-[#D6BB88] py-2.5 border border-[#D6BB88]/40 rounded-full"
+                    className="flex items-center justify-center space-x-2 rtl:space-x-reverse text-xs tracking-wider text-[#D6BB88] py-2.5 border border-[#D6BB88]/40 rounded-full"
                   >
                     <MessageCircle className="w-4 h-4" />
-                    <span>Chat on WhatsApp</span>
+                    <span>{t.navbar.whatsapp}</span>
                   </a>
                   <a
                     href="#consultation"
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center justify-center text-xs uppercase tracking-widest text-[#21102F] bg-[#D6BB88] py-3 rounded-full font-medium"
                   >
-                    Book Private Consultation
+                    {t.navbar.bookConsultation}
                   </a>
                 </div>
               </div>

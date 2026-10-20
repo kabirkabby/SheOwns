@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Jost } from "next/font/google";
+import { LanguageProvider } from "@/context/LanguageContext";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -212,7 +213,9 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-[#F8F5EF] text-[#2B2B2B] font-sans selection:bg-[#D6BB88]/30 selection:text-[#21102F]">
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

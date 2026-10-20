@@ -20,11 +20,14 @@ import {
   Coffee,
   Building2,
   Award,
+  Globe,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function RSVPPage() {
+  const { toggleLocale, t, isRtl } = useLanguage();
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -125,13 +128,24 @@ END:VCALENDAR`;
             />
           </Link>
 
-          <Link
-            href="/"
-            className="inline-flex items-center space-x-1.5 text-xs text-[#D6BB88] hover:text-[#F8F5EF] transition-colors uppercase tracking-widest font-medium py-2 px-4 rounded-full border border-[#D6BB88]/30 hover:border-[#D6BB88]"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            <span>Explore SheOwns</span>
-          </Link>
+          <div className="flex items-center space-x-3 rtl:space-x-reverse">
+            <button
+              onClick={toggleLocale}
+              className="flex items-center space-x-1.5 rtl:space-x-reverse text-xs tracking-wider text-[#F8F5EF] hover:text-[#D6BB88] transition-colors px-3.5 py-1.5 border border-[#D6BB88]/40 rounded-full hover:border-[#D6BB88] bg-white/5 cursor-pointer font-medium"
+              aria-label="Switch Language"
+            >
+              <Globe className="w-3.5 h-3.5 text-[#D6BB88]" />
+              <span>{t.navbar.langButton}</span>
+            </button>
+
+            <Link
+              href="/"
+              className="inline-flex items-center space-x-1.5 rtl:space-x-reverse text-xs text-[#D6BB88] hover:text-[#F8F5EF] transition-colors uppercase tracking-widest font-medium py-2 px-4 rounded-full border border-[#D6BB88]/30 hover:border-[#D6BB88]"
+            >
+              <ArrowLeft className="w-3.5 h-3.5 rtl:rotate-180" />
+              <span>{isRtl ? "استكشفي شي أونز" : "Explore SheOwns"}</span>
+            </Link>
+          </div>
         </div>
       </header>
 

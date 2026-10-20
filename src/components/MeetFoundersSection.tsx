@@ -2,33 +2,28 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-
-const founders = [
-  {
-    name: "Gaurav Sharrma",
-    role: "Founder & CEO, Aurex Privy Real Estate",
-    quote: "SheOwnsDubai was born from a simple idea - to create a dedicated real-estate platform designed specifically for women, giving them access to the knowledge, insight and guidance they need to make informed and confident decisions about property and wealth.",
-    image: "/images/gaurav_sharma.jpg",
-    credentials: [
-      "18+ Years of Dubai Market Experience",
-      "Advising International Investors on Strategic Property Decisions.",
-      "Building UAE’s first Women-Centric Real Estate Platform",
-    ],
-  },
-  {
-    name: "Aparna Bajpai",
-    role: "Founder & President, Being She Association",
-    quote: "Women have always played a powerful role in building families, businesses and communities. Now, it is time to be equally present in the conversations that shape wealth and financial independence.",
-    image: "/images/aparna_bajpai.jpg",
-    credentials: [
-      "Dubai's largest network of women leaders",
-      "5,000+ active community members",
-      "Hosted many women empowerment events",
-    ],
-  },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function MeetFoundersSection() {
+  const { t, isRtl } = useLanguage();
+
+  const founders = [
+    {
+      name: t.founders.gaurav.name,
+      role: t.founders.gaurav.role,
+      quote: t.founders.gaurav.quote,
+      image: "/images/gaurav_sharma.jpg",
+      credentials: t.founders.gaurav.credentials,
+    },
+    {
+      name: t.founders.aparna.name,
+      role: t.founders.aparna.role,
+      quote: t.founders.aparna.quote,
+      image: "/images/aparna_bajpai.jpg",
+      credentials: t.founders.aparna.credentials,
+    },
+  ];
+
   return (
     <section id="founders" className="bg-[#EFE9DF] py-24 px-6 md:px-12 overflow-hidden">
       <div className="max-w-7xl mx-auto space-y-16">
@@ -41,10 +36,9 @@ export default function MeetFoundersSection() {
           transition={{ duration: 0.8 }}
           className="space-y-3"
         >
-          <span className="text-xs uppercase tracking-widest text-[#3B235A] font-semibold">The Founders</span>
+          <span className="text-xs uppercase tracking-widest text-[#3B235A] font-semibold">{t.founders.tag}</span>
           <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-light text-[#21102F] leading-[1.15]">
-            The people who{" "}
-            <span className="italic text-[#3B235A]">built this for you.</span>
+            {t.founders.heading}
           </h2>
         </motion.div>
 
@@ -82,12 +76,12 @@ export default function MeetFoundersSection() {
 
               {/* Quote + credentials */}
               <div className="space-y-5 px-2">
-                <blockquote className="font-serif text-xl sm:text-2xl text-[#21102F] font-light leading-relaxed italic border-l-2 border-[#D6BB88] pl-5">
+                <blockquote className="font-serif text-xl sm:text-2xl text-[#21102F] font-light leading-relaxed italic border-l-2 rtl:border-l-0 rtl:border-r-2 border-[#D6BB88] pl-5 rtl:pl-0 rtl:pr-5">
                   "{quote}"
                 </blockquote>
                 <ul className="space-y-2">
                   {credentials.map((c) => (
-                    <li key={c} className="text-md text-[#2B2B2B]/70 font-regular flex items-start space-x-2">
+                    <li key={c} className="text-md text-[#2B2B2B]/70 font-regular flex items-start space-x-2 rtl:space-x-reverse">
                       <span className="text-[#D6BB88] mt-1">—</span>
                       <span>{c}</span>
                     </li>

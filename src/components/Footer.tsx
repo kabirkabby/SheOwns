@@ -1,15 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageCircle, ArrowUp, Globe, Mail, Share2 } from "lucide-react";
+import { MessageCircle, ArrowUp, Mail, Phone, MapPin } from "lucide-react";
 import Image from "next/image";
-
 import { useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const { t, isRtl } = useLanguage();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -53,19 +54,19 @@ export default function Footer() {
               />
             </a>
             <p className="text-xs text-[#F8F5EF]/70 font-light max-w-md leading-relaxed pt-1">
-              Empowering women through financial literacy, transparent advisory, and exclusive developer opportunities in Dubai’s real estate market.
+              {t.footer.description}
             </p>
           </div>
 
           <div className="lg:col-span-6 glass-card-dark p-6 rounded-2xl border border-[#D6BB88]/20 space-y-3">
             <span className="text-[10px] uppercase tracking-widest text-[#D6BB88] font-medium">
-              Join The SheOwns Circle
+              {t.footer.circleTag}
             </span>
             <h4 className="font-serif text-xl text-[#F8F5EF]">
-              Receive Private Market Intelligence & Off-Market Allocations
+              {t.footer.circleTitle}
             </h4>
             {submitted ? (
-              <p className="text-xs text-[#D6BB88] pt-2">✨ Thank you for subscribing to The SheOwns Circle!</p>
+              <p className="text-xs text-[#D6BB88] pt-2">{t.footer.thankYou}</p>
             ) : (
               <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2 pt-2">
                 <input
@@ -73,15 +74,15 @@ export default function Footer() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
+                  placeholder={t.footer.emailPlaceholder}
                   className="bg-[#21102F] border border-[#D6BB88]/30 rounded-xl px-4 py-2.5 text-xs text-[#F8F5EF] placeholder-[#F8F5EF]/40 focus:outline-none focus:border-[#D6BB88] grow"
                 />
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-[#D6BB88] text-[#21102F] text-xs uppercase tracking-widest font-semibold px-6 py-2.5 rounded-xl hover:bg-[#E7D7B3] disabled:opacity-50 transition-colors shrink-0"
+                  className="bg-[#D6BB88] text-[#21102F] text-xs uppercase tracking-widest font-semibold px-6 py-2.5 rounded-xl hover:bg-[#E7D7B3] disabled:opacity-50 transition-colors shrink-0 cursor-pointer"
                 >
-                  {isSubmitting ? "..." : "Subscribe"}
+                  {isSubmitting ? "..." : t.footer.subscribeBtn}
                 </button>
               </form>
             )}
@@ -90,62 +91,69 @@ export default function Footer() {
 
         {/* Middle Row: Links & Contact */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-[#D6BB88]/10 text-xs">
+          {/* Column 1: Initiative */}
           <div className="space-y-3">
-            <span className="text-[10px] uppercase tracking-widest text-[#D6BB88] font-semibold">Initiative</span>
+            <span className="text-[10px] uppercase tracking-widest text-[#D6BB88] font-semibold">
+              {t.footer.col1Title}
+            </span>
             <ul className="space-y-2 text-[#F8F5EF]/70 font-light">
-              <li><a href="#about" className="hover:text-[#D6BB88] transition-colors">About SheOwns</a></li>
-              <li><a href="#why-she-owns" className="hover:text-[#D6BB88] transition-colors">The 6 Pillars</a></li>
-              <li><a href="#founders" className="hover:text-[#D6BB88] transition-colors">The Founders</a></li>
+              {t.footer.col1Links.map((link, idx) => (
+                <li key={idx}>
+                  <a href={link.href} className="hover:text-[#D6BB88] transition-colors">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
+          {/* Column 2: Experience / Events */}
           <div className="space-y-3">
-            <span className="text-[10px] uppercase tracking-widest text-[#D6BB88] font-semibold">Community</span>
+            <span className="text-[10px] uppercase tracking-widest text-[#D6BB88] font-semibold">
+              {t.footer.col2Title}
+            </span>
             <ul className="space-y-2 text-[#F8F5EF]/70 font-light">
-              <li><a href="#benefits" className="hover:text-[#D6BB88] transition-colors">Exclusive Benefits</a></li>
-              <li><a href="#founders" className="hover:text-[#D6BB88] transition-colors">Meet the Founders</a></li>
-              <li><a href="#stories" className="hover:text-[#D6BB88] transition-colors">Success Stories</a></li>
-              <li><a href="#workshops" className="hover:text-[#D6BB88] transition-colors">Upcoming Workshops</a></li>
+              {t.footer.col2Links.map((link, idx) => (
+                <li key={idx}>
+                  <a href={link.href} className="hover:text-[#D6BB88] transition-colors">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
+          {/* Column 3: Legal & Regulatory */}
           <div className="space-y-3">
-            <span className="text-[10px] uppercase tracking-widest text-[#D6BB88] font-semibold">Partners</span>
-            <ul className="space-y-2 text-[#F8F5EF]/70 font-light">
-              <li>
-                <a
-                  href="https://aurexprivy.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#D6BB88] transition-colors flex items-center space-x-1"
-                >
-                  <span>Aurex Privy Advisory</span>
-                  <span className="text-[10px] text-[#D6BB88]">↗</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://beingshe.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#D6BB88] transition-colors flex items-center space-x-1"
-                >
-                  <span>Being She International</span>
-                  <span className="text-[10px] text-[#D6BB88]">↗</span>
-                </a>
-              </li>
-              <li><a href="#faq" className="hover:text-[#D6BB88] transition-colors">Frequently Asked Questions</a></li>
-              <li><a href="#consultation" className="hover:text-[#D6BB88] transition-colors">Book Consultation</a></li>
-            </ul>
-          </div>
-
-          <div className="space-y-3">
-            <span className="text-[10px] uppercase tracking-widest text-[#D6BB88] font-semibold">Dubai Headquarters</span>
+            <span className="text-[10px] uppercase tracking-widest text-[#D6BB88] font-semibold">
+              {t.footer.col3Title}
+            </span>
             <p className="text-[#F8F5EF]/70 font-light leading-relaxed">
-              Suite no. 1509, The Exchange Tower,<br />
-              Business Bay, Dubai, United Arab Emirates
+              {t.footer.col3Text}
             </p>
-            <div className="flex items-center space-x-3 pt-2 text-[#D6BB88]">
+          </div>
+
+          {/* Column 4: Direct Contact */}
+          <div className="space-y-3">
+            <span className="text-[10px] uppercase tracking-widest text-[#D6BB88] font-semibold">
+              {t.footer.col4Title}
+            </span>
+            <p className="text-[#F8F5EF]/70 font-light leading-relaxed">
+              {t.footer.col4Address}
+            </p>
+            <div className="space-y-1 text-[#F8F5EF]/80 font-light">
+              <div>
+                <a href={`tel:${t.footer.col4Phone.replace(/\s+/g, '')}`} className="hover:text-[#D6BB88] transition-colors dir-ltr inline-block">
+                  {t.footer.col4Phone}
+                </a>
+              </div>
+              <div>
+                <a href={`mailto:${t.footer.col4Email}`} className="hover:text-[#D6BB88] transition-colors">
+                  {t.footer.col4Email}
+                </a>
+              </div>
+            </div>
+            <div className="flex items-center space-x-3 rtl:space-x-reverse pt-2 text-[#D6BB88]">
               <a
                 href="https://instagram.com/aurexprivy"
                 target="_blank"
@@ -179,22 +187,25 @@ export default function Footer() {
 
         {/* Bottom Row: Disclaimer & Back to Top */}
         <div className="pt-8 border-t border-[#D6BB88]/10 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] text-[#F8F5EF]/50 font-light">
-          <div>
-            © {new Date().getFullYear()} SheOwns Initiative. Launched by Aurex Privy Real Estate in collaboration with Being She. All rights reserved.
+          <div className="text-center md:text-left rtl:md:text-right">
+            {t.footer.copyright}
           </div>
 
-          <div className="flex items-center space-x-6">
-            <a href="#" className="hover:text-[#D6BB88] transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-[#D6BB88] transition-colors">Terms of Advisory</a>
+          <div className="flex items-center space-x-6 rtl:space-x-reverse">
             <button
               onClick={scrollToTop}
-              className="inline-flex items-center space-x-1 text-[#D6BB88] hover:text-[#F8F5EF] transition-colors"
+              className="inline-flex items-center space-x-1.5 rtl:space-x-reverse text-[#D6BB88] hover:text-[#F8F5EF] transition-colors cursor-pointer"
             >
-              <span>Back to Top</span>
+              <span>{t.footer.backToTop}</span>
               <ArrowUp className="w-3 h-3" />
             </button>
           </div>
         </div>
+
+        {/* Legal Disclaimer Subtext */}
+        <p className="text-[9px] text-[#F8F5EF]/40 font-light leading-relaxed text-center md:text-left rtl:md:text-right pt-2 border-t border-[#D6BB88]/5">
+          {t.footer.disclaimer}
+        </p>
 
       </div>
     </footer>

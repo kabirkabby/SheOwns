@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowRight, BookOpen, Check } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface EmailCapturePopupProps {
   coverDismissed: boolean;
@@ -14,6 +15,7 @@ export default function EmailCapturePopup({ coverDismissed }: EmailCapturePopupP
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [email, setEmail] = useState("");
+  const { t, isRtl } = useLanguage();
 
   useEffect(() => {
     if (!coverDismissed || dismissed) return;
@@ -77,15 +79,15 @@ export default function EmailCapturePopup({ coverDismissed }: EmailCapturePopupP
             onClick={(e) => e.stopPropagation()}
           >
             {/* Ambient glow */}
-            <div className="absolute top-0 right-0 w-72 h-72 bg-[#3B235A]/70 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#D6BB88]/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-0 right-0 rtl:right-auto rtl:left-0 w-72 h-72 bg-[#3B235A]/70 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 rtl:left-auto rtl:right-0 w-48 h-48 bg-[#D6BB88]/15 rounded-full blur-3xl pointer-events-none" />
 
             {/* Interactive Close button */}
             <motion.button
               onClick={handleDismiss}
               whileHover={{ scale: 1.15, rotate: 90 }}
               whileTap={{ scale: 0.9 }}
-              className="absolute top-5 right-5 z-50 w-10 h-10 rounded-full bg-[#3B235A]/80 border border-[#D6BB88]/30 flex items-center justify-center text-[#F8F5EF] hover:text-[#D6BB88] hover:bg-[#3B235A] transition-colors shadow-lg cursor-pointer"
+              className="absolute top-5 right-5 rtl:right-auto rtl:left-5 z-50 w-10 h-10 rounded-full bg-[#3B235A]/80 border border-[#D6BB88]/30 flex items-center justify-center text-[#F8F5EF] hover:text-[#D6BB88] hover:bg-[#3B235A] transition-colors shadow-lg cursor-pointer"
               aria-label="Close modal"
               type="button"
             >
@@ -103,26 +105,21 @@ export default function EmailCapturePopup({ coverDismissed }: EmailCapturePopupP
                   {/* Headline */}
                   <div className="space-y-2">
                     <span className="text-xs uppercase tracking-widest text-[#D6BB88] font-semibold">
-                      Free for SheOwns Community
+                      {t.popup.badge}
                     </span>
                     <h3 className="font-serif text-2xl sm:text-3xl text-[#F8F5EF] font-light leading-snug">
-                      The First-Time Investor's Guide to{" "}
-                      <span className="italic text-[#D6BB88]">Dubai Real Estate</span>
+                      {t.popup.titlePart1}{" "}
+                      <span className="italic text-[#D6BB88]">{t.popup.titlePart2}</span>
                     </h3>
                     <p className="text-sm text-[#F8F5EF]/80 font-light leading-relaxed">
-                      Everything no one explains — off-plan contracts, customised monthly payment plans, DLD protections, and what to watch out for. Written for women, by women who've done it.
+                      {t.popup.description}
                     </p>
                   </div>
 
                   {/* What's inside */}
                   <ul className="space-y-2.5 text-sm text-[#F8F5EF]/85 font-light">
-                    {[
-                      "How off-plan investing actually works",
-                      "The contract red flags that cost buyers millions",
-                      "Customised monthly payment plans for members",
-                      "Your rights as a foreign woman investor in Dubai",
-                    ].map((item) => (
-                      <li key={item} className="flex items-start space-x-2.5">
+                    {t.popup.bullets.map((item, idx) => (
+                      <li key={idx} className="flex items-start space-x-2.5 rtl:space-x-reverse">
                         <span className="text-[#D6BB88] font-bold mt-0.5 shrink-0">•</span>
                         <span>{item}</span>
                       </li>
@@ -136,7 +133,7 @@ export default function EmailCapturePopup({ coverDismissed }: EmailCapturePopupP
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Enter your email address"
+                      placeholder={t.popup.placeholder}
                       className="w-full bg-[#3B235A]/60 border border-[#D6BB88]/40 rounded-xl px-4 py-3.5 text-sm text-[#F8F5EF] placeholder-[#F8F5EF]/40 focus:outline-none focus:border-[#D6BB88] transition-colors"
                     />
                     
@@ -145,25 +142,25 @@ export default function EmailCapturePopup({ coverDismissed }: EmailCapturePopupP
                       disabled={isSubmitting}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.96 }}
-                      className={`w-full bg-gradient-to-r from-[#D6BB88] via-[#E7D7B3] to-[#B89B62] text-[#21102F] font-semibold text-xs uppercase tracking-widest py-4 rounded-xl shadow-xl flex items-center justify-center space-x-2 transition-all cursor-pointer ${
+                      className={`w-full bg-gradient-to-r from-[#D6BB88] via-[#E7D7B3] to-[#B89B62] text-[#21102F] font-semibold text-xs uppercase tracking-widest py-4 rounded-xl shadow-xl flex items-center justify-center space-x-2 rtl:space-x-reverse transition-all cursor-pointer ${
                         isSubmitting ? "opacity-80" : ""
                       }`}
                     >
                       {isSubmitting ? (
-                        <span className="inline-flex items-center space-x-2">
+                        <span className="inline-flex items-center space-x-2 rtl:space-x-reverse">
                           <span className="w-4 h-4 border-2 border-[#21102F] border-t-transparent rounded-full animate-spin" />
-                          <span>Sending Request...</span>
+                          <span>{t.popup.sending}</span>
                         </span>
                       ) : (
                         <>
-                          <span>Send Me the Free Guide</span>
-                          <ArrowRight className="w-4 h-4" />
+                          <span>{t.popup.btn}</span>
+                          <ArrowRight className="w-4 h-4 rtl:rotate-180" />
                         </>
                       )}
                     </motion.button>
 
                     <p className="text-center text-[10px] text-[#F8F5EF]/60 font-light">
-                      We'll send it straight to your inbox. No spam, ever.
+                      {t.popup.spamNote}
                     </p>
                   </form>
                 </div>
@@ -176,9 +173,9 @@ export default function EmailCapturePopup({ coverDismissed }: EmailCapturePopupP
                   <div className="w-16 h-16 rounded-full bg-[#D6BB88] flex items-center justify-center mx-auto shadow-lg text-[#21102F]">
                     <Check className="w-8 h-8 stroke-[3]" />
                   </div>
-                  <h3 className="font-serif text-3xl text-[#F8F5EF] font-light">Guide On Its Way!</h3>
+                  <h3 className="font-serif text-3xl text-[#F8F5EF] font-light">{t.popup.successTitle}</h3>
                   <p className="text-sm text-[#F8F5EF]/85 font-light max-w-xs mx-auto leading-relaxed">
-                    Check your inbox. Your complimentary guide is being delivered to <span className="text-[#D6BB88] font-medium">{email}</span>.
+                    {t.popup.successDesc}
                   </p>
                 </motion.div>
               )}
