@@ -9,7 +9,8 @@ const navLinks = [
   { name: "About", href: "#about" },
   { name: "Why SheOwns", href: "#why-she-owns" },
   { name: "Founders", href: "#founders" },
-  { name: "Workshops", href: "#workshops" },
+  { name: "The Property Show", href: "#property-show" },
+  { name: "Past Events", href: "#past-events" },
   { name: "FAQ", href: "#faq" },
 ];
 
@@ -39,12 +40,12 @@ export default function Navbar() {
         }`}
       >
         <div className="bg-gradient-to-r from-[#E7D7B3] via-[#D6BB88] to-[#B89B62] text-[#21102F] text-[10px] sm:text-xs py-1.5 px-3 text-center font-medium tracking-wide shadow-sm flex items-center justify-center space-x-1 sm:space-x-1.5 flex-wrap">
-          <span>Emirati Women's Day Open House · Fri 28 Aug · 4–8 PM · Danube Properties, SZR — 40 seats only ·</span>
+          <span>SheOwns The Property Show · 12th December, 2026 · Registrations Open ·</span>
           <a
             href="/rsvp"
             className="underline underline-offset-2 font-bold hover:text-[#3B235A] transition-colors cursor-pointer"
           >
-            Reserve yours ↗
+            Register now ↗
           </a>
         </div>
       </div>

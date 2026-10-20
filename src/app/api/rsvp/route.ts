@@ -20,22 +20,22 @@ export async function POST(req: Request) {
       timeStyle: "short",
     });
 
-    const eventName = "SheOwns — Emirati Women's Day Open House";
-    const eventDate = "Friday, 28 August 2026";
-    const eventTime = "4:00 PM – 8:00 PM GST";
-    const venueName = "Danube Properties";
-    const venueAddress = "Sheikh Zayed Road, Dubai, United Arab Emirates";
-    const googleMapsUrl = "https://maps.app.goo.gl/PViaFH2Kgag4ud3Y7";
+    const eventName = "SheOwns — The Property Show";
+    const eventDate = "12th December 2026";
+    const eventTime = "Private VIP Session Times Shared with Confirmed Guests";
+    const venueName = "Dubai, United Arab Emirates";
+    const venueAddress = "Private venue details disclosed directly to confirmed VIP registrants";
+    const googleMapsUrl = "";
 
     // Google Calendar URL Generator
-    // Start: 2026-08-28 16:00 GST (12:00 UTC) -> End: 2026-08-28 20:00 GST (16:00 UTC)
-    const gCalStart = "20260828T120000Z";
-    const gCalEnd = "20260828T160000Z";
+    // Start: 2026-12-12 10:00 GST (06:00 UTC) -> End: 2026-12-12 18:00 GST (14:00 UTC)
+    const gCalStart = "20261212T060000Z";
+    const gCalEnd = "20261212T140000Z";
     const gCalTitle = encodeURIComponent(eventName);
     const gCalDetails = encodeURIComponent(
-      `Private Open House & Masterclass by SheOwns (Aurex Privy × Being She).\n\n• VIP Guest: ${fullName}\n• Reserved Seats: ${guests}\n• Venue: ${venueName}, ${venueAddress}\n• Inquiries / Concierge: +971 50 181 5561\n\nHigh tea reception will be served.`
+      `SheOwns The Property Show (Presented by Aurex Privy & Gulf News, Sponsored by BeingShe).\n\n• VIP Guest: ${fullName}\n• Reserved Seats: ${guests}\n• Location: ${venueName}\n• Inquiries / Concierge: +971 50 181 5561\n\nDubai's premier real estate exhibition bringing top master developers directly to women investors.`
     );
-    const gCalLocation = encodeURIComponent(`${venueName}, ${venueAddress}`);
+    const gCalLocation = encodeURIComponent(venueName);
     const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${gCalTitle}&dates=${gCalStart}/${gCalEnd}&details=${gCalDetails}&location=${gCalLocation}`;
 
     // Payload for Google Sheets
@@ -45,8 +45,8 @@ export async function POST(req: Request) {
       email,
       phone,
       guests: Number(guests) || 1,
-      investmentInterest: investmentInterest || notes || "General Interest / Networking",
-      source: "Event RSVP: Open House",
+      investmentInterest: investmentInterest || notes || "General Interest / Property Show",
+      source: "Event RSVP: The Property Show",
       status: "Confirmed",
     };
 
@@ -68,7 +68,7 @@ export async function POST(req: Request) {
         from: fromEmail,
         to: email,
         replyTo: "info@sheowns.com",
-        subject: `✨ VIP Invitation Confirmed: SheOwns Emirati Women's Day Open House (${fullName})`,
+        subject: `✨ VIP Pass Confirmed: SheOwns The Property Show (${fullName})`,
         html: `
           <!DOCTYPE html>
           <html>
@@ -99,7 +99,7 @@ export async function POST(req: Request) {
             <div class="container">
               <div class="header">
                 <h1>SHEOWNS</h1>
-                <p>Emirati Women's Day Open House · VIP Pass</p>
+                <p>The Property Show · VIP Pass</p>
               </div>
               <div class="body">
                 <div style="text-align: center;">
@@ -108,7 +108,7 @@ export async function POST(req: Request) {
                 
                 <div class="greeting">Dear ${fullName},</div>
                 <div class="intro-text">
-                  We are delighted to confirm your guest reservation for the exclusive <strong>SheOwns Emirati Women's Day Open House</strong> in Dubai. High Tea, private market intelligence, and curated developer allocations await you.
+                  We are delighted to confirm your guest reservation for the exclusive <strong>SheOwns The Property Show</strong> in Dubai. Top master developers, independent legal advisors, and curated developer allocations await you.
                 </div>
 
                 <div class="card">
@@ -121,16 +121,8 @@ export async function POST(req: Request) {
                     <div class="val">📅 ${eventDate}</div>
                   </div>
                   <div class="row">
-                    <div class="label">Time</div>
-                    <div class="val">⏰ ${eventTime}</div>
-                  </div>
-                  <div class="row">
-                    <div class="label">Venue</div>
+                    <div class="label">Location</div>
                     <div class="val">📍 ${venueName}<br /><span style="font-size: 12px; color: rgba(248,245,239,0.7);">${venueAddress}</span></div>
-                  </div>
-                  <div class="row">
-                    <div class="label">Attire</div>
-                    <div class="val">👗 Elegant / Business Chic</div>
                   </div>
                 </div>
 
@@ -138,10 +130,7 @@ export async function POST(req: Request) {
                   <a href="${googleCalendarUrl}" target="_blank" class="btn-primary">
                     📅 Add to Google Calendar
                   </a>
-                  <a href="${googleMapsUrl}" target="_blank" class="btn-secondary">
-                    📍 Get Venue Directions (Google Maps)
-                  </a>
-                  <a href="https://wa.me/971501815561?text=Hello%20SheOwns%20Concierge,%20my%20name%20is%20${encodeURIComponent(fullName)}.%20I%20have%20confirmed%20my%20RSVP%20for%20the%20Open%20House." target="_blank" class="btn-whatsapp">
+                  <a href="https://wa.me/971501815561?text=Hello%20SheOwns%20Concierge,%20my%20name%20is%20${encodeURIComponent(fullName)}.%20I%20have%20confirmed%20my%20RSVP%20for%20The%20Property%20Show." target="_blank" class="btn-whatsapp">
                     💬 WhatsApp Event Concierge
                   </a>
                 </div>

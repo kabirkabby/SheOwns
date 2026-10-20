@@ -37,24 +37,24 @@ export default function RSVPPage() {
   const [errorMessage, setErrorMessage] = useState("");
   const [calendarUrl, setCalendarUrl] = useState("");
 
-  const eventDateStr = "Friday, 28 August 2026";
-  const eventTimeStr = "4:00 PM – 8:00 PM (GST)";
-  const venueStr = "Danube Properties, Sheikh Zayed Road, Dubai";
-  const googleMapsUrl = "https://maps.app.goo.gl/PViaFH2Kgag4ud3Y7";
+  const eventDateStr = "12th December 2026";
+  const eventTimeStr = "Private VIP Session Times Shared with Confirmed Guests";
+  const venueStr = "Dubai, United Arab Emirates (Venue disclosed to registered VIPs)";
+  const googleMapsUrl = "";
 
   const generateIcsDownload = () => {
     const icsData = `BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//SheOwns Dubai//Emirati Womens Day Open House//EN
+PRODID:-//SheOwns Dubai//SheOwns The Property Show//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:sheowns-openhouse-20260828@sheownsdubai.com
-DTSTAMP:20260828T120000Z
-DTSTART:20260828T120000Z
-DTEND:20260828T160000Z
-SUMMARY:SheOwns — Emirati Women's Day Open House & VIP Masterclass
-DESCRIPTION:Private VIP Open House by SheOwns (Aurex Privy × Being She). High Tea Reception, Off-Market Developer Allocations, and Wealth Sovereignty Masterclass.\\n\\nGuest: ${formData.fullName || "VIP Guest"}\\nSeats: ${formData.guests}\\nVenue: ${venueStr}
+UID:sheowns-propertyshow-20261212@sheownsdubai.com
+DTSTAMP:20261212T080000Z
+DTSTART:20261212T080000Z
+DTEND:20261212T160000Z
+SUMMARY:SheOwns — The Property Show
+DESCRIPTION:Private VIP Property Exhibition by SheOwns (Presented by Aurex Privy & Gulf News, Sponsored by BeingShe).\\n\\nGuest: ${formData.fullName || "VIP Guest"}\\nSeats: ${formData.guests}\\nLocation: ${venueStr}
 LOCATION:${venueStr}
 STATUS:CONFIRMED
 END:VEVENT
@@ -64,7 +64,7 @@ END:VCALENDAR`;
     const url = window.URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.setAttribute("download", "SheOwns-Open-House-Pass.ics");
+    link.setAttribute("download", "SheOwns-Property-Show-Pass.ics");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -148,18 +148,18 @@ END:VCALENDAR`;
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#D6BB88]/20 to-transparent border border-[#D6BB88]/40 px-4 py-1.5 rounded-full">
               <Sparkles className="w-3.5 h-3.5 text-[#D6BB88]" />
               <span className="text-[10px] sm:text-xs uppercase tracking-widest text-[#D6BB88] font-semibold">
-                Official Private VIP Invitation · Limited to 40 Guests
+                Official Private VIP Invitation · Registrations Open
               </span>
             </div>
 
             {/* Main Headline */}
             <div className="space-y-4">
               <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#F8F5EF] font-light leading-[1.15]">
-                Emirati Women's Day <br />
-                <span className="italic text-[#D6BB88]">Open House & Salon</span>
+                SheOwns <br />
+                <span className="italic text-[#D6BB88]">The Property Show</span>
               </h1>
               <p className="text-base sm:text-lg text-[#F8F5EF]/80 font-light leading-relaxed max-w-xl">
-                Celebrating the women who shape this nation — and the visionary women choosing to claim their seat in wealth, property ownership, and financial sovereignty.
+                Dubai's premier real estate exhibition bringing top master developers directly to women investors and homeowners.
               </p>
             </div>
 
@@ -192,9 +192,9 @@ END:VCALENDAR`;
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div className="space-y-1">
-                    <span className="text-[10px] uppercase tracking-widest text-[#D6BB88] font-semibold block">Venue & Hospitality</span>
-                    <p className="text-sm font-medium text-[#F8F5EF]">Danube Properties</p>
-                    <p className="text-xs text-[#F8F5EF]/60 font-light">Sheikh Zayed Road, Dubai · High Tea & Refreshments served · Valet available</p>
+                    <span className="text-[10px] uppercase tracking-widest text-[#D6BB88] font-semibold block">Location & Access</span>
+                    <p className="text-sm font-medium text-[#F8F5EF]">Dubai, United Arab Emirates</p>
+                    <p className="text-xs text-[#F8F5EF]/60 font-light">Exclusive venue details and private itinerary disclosed directly to confirmed VIP registrants.</p>
                   </div>
                 </div>
 
@@ -203,7 +203,7 @@ END:VCALENDAR`;
               <div className="pt-4 border-t border-[#D6BB88]/20 flex items-center justify-between text-xs text-[#D6BB88]">
                 <span className="flex items-center space-x-2">
                   <Crown className="w-4 h-4" />
-                  <span>Curated by Aurex Privy × Being She</span>
+                  <span>Presented by Aurex Privy & Gulf News · Sponsored by BeingShe</span>
                 </span>
                 <span className="text-[10px] uppercase tracking-widest text-[#F8F5EF]/50">Complimentary VIP Pass</span>
               </div>
@@ -379,15 +379,15 @@ END:VCALENDAR`;
                     <div className="grid grid-cols-2 gap-3 text-xs">
                       <div>
                         <span className="text-[10px] text-[#F8F5EF]/60 block">Date</span>
-                        <span className="font-medium text-[#F8F5EF]">28 Aug 2026</span>
+                        <span className="font-medium text-[#F8F5EF]">12 Dec 2026</span>
                       </div>
                       <div>
-                        <span className="text-[10px] text-[#F8F5EF]/60 block">Time</span>
-                        <span className="font-medium text-[#F8F5EF]">4:00 PM – 8:00 PM</span>
+                        <span className="text-[10px] text-[#F8F5EF]/60 block">Status</span>
+                        <span className="font-medium text-[#F8F5EF]">VIP Registered</span>
                       </div>
                       <div className="col-span-2">
                         <span className="text-[10px] text-[#F8F5EF]/60 block">Location</span>
-                        <span className="font-medium text-[#F8F5EF]">Danube Properties, Sheikh Zayed Road, Dubai</span>
+                        <span className="font-medium text-[#F8F5EF]">Dubai, UAE (Venue sent to registered email)</span>
                       </div>
                     </div>
                   </div>
@@ -414,25 +414,15 @@ END:VCALENDAR`;
                       <span>Download Apple / Outlook Calendar (.ics)</span>
                     </button>
 
-                    <div className="grid grid-cols-2 gap-2 pt-1">
+                    <div className="pt-1">
                       <a
-                        href={googleMapsUrl}
+                        href="https://wa.me/971501815561?text=Hello%20SheOwns%20Concierge,%20I%20have%20confirmed%20my%20RSVP%20for%20The%20Property%20Show."
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-[#21102F] border border-[#D6BB88]/30 hover:border-[#D6BB88] text-xs text-[#F8F5EF] py-3 rounded-xl flex items-center justify-center space-x-1.5 transition-colors"
-                      >
-                        <Navigation className="w-3.5 h-3.5 text-[#D6BB88]" />
-                        <span>Get Directions</span>
-                      </a>
-
-                      <a
-                        href="https://wa.me/971501815561?text=Hello%20SheOwns%20Concierge,%20my%20name%20is%20Sarah%20and%20I%20have%20confirmed%20my%20RSVP."
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-[#25D366]/20 border border-[#25D366]/50 hover:bg-[#25D366]/30 text-xs text-[#F8F5EF] py-3 rounded-xl flex items-center justify-center space-x-1.5 transition-colors"
+                        className="w-full bg-[#25D366]/20 border border-[#25D366]/50 hover:bg-[#25D366]/30 text-xs text-[#F8F5EF] py-3 rounded-xl flex items-center justify-center space-x-1.5 transition-colors"
                       >
                         <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
-                        <span>Chat on WhatsApp</span>
+                        <span>Chat with VIP Concierge on WhatsApp</span>
                       </a>
                     </div>
                   </div>
@@ -473,9 +463,9 @@ END:VCALENDAR`;
               <div className="w-10 h-10 rounded-xl bg-[#D6BB88]/15 border border-[#D6BB88]/30 flex items-center justify-center text-[#D6BB88]">
                 <Building2 className="w-5 h-5" />
               </div>
-              <h4 className="font-serif text-xl text-[#F8F5EF] font-light">Off-Market Allocations</h4>
+              <h4 className="font-serif text-xl text-[#F8F5EF] font-light">Top Master Developers</h4>
               <p className="text-xs text-[#F8F5EF]/70 font-light leading-relaxed">
-                Direct developer access to Danube’s premier off-plan launches with exclusive SheOwns 1% monthly payment structures tailored for female investors.
+                Direct developer access to Dubai’s premier off-plan launches with exclusive SheOwns investment terms tailored for female investors.
               </p>
             </div>
 

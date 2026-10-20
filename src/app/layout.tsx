@@ -178,18 +178,17 @@ export default function RootLayout({
       },
       {
         "@type": "Event",
-        name: "Emirati Women's Day Open House",
-        description: "Exclusive masterclass and open house for women investors in Dubai.",
-        startDate: "2026-08-28T16:00:00+04:00",
-        endDate: "2026-08-28T20:00:00+04:00",
+        name: "SheOwns The Property Show",
+        description: "Dubai's premier real estate exhibition bringing top master developers directly to women investors.",
+        startDate: "2026-12-12T10:00:00+04:00",
+        endDate: "2026-12-12T18:00:00+04:00",
         eventStatus: "https://schema.org/EventScheduled",
         eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
         location: {
           "@type": "Place",
-          name: "Danube Properties",
+          name: "Dubai",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "Sheikh Zayed Road",
             addressLocality: "Dubai",
             addressCountry: "AE",
           },

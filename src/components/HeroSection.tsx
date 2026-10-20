@@ -68,11 +68,67 @@ export default function HeroSection() {
               <ArrowDownRight className="w-4 h-4 group-hover:rotate-45 transition-transform duration-300 shrink-0" />
             </a>
             <a
-              href="#workshops"
+              href="#property-show"
               className="text-xs uppercase tracking-widest text-[#F8F5EF]/90 hover:text-[#D6BB88] transition-colors underline underline-offset-4 decoration-[#D6BB88]/40 text-center py-2 sm:py-0"
             >
-              See Our Open House →
+              The Property Show →
             </a>
+          </motion.div>
+
+          {/* Presenter & Partner Logos */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="pt-6 sm:pt-8 border-t border-white/15"
+          >
+            <p className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#D6BB88] font-semibold mb-4">
+              Presented by Aurex Privy & Gulf News · Sponsored by BeingShe
+            </p>
+            <div className="flex flex-wrap items-center gap-5 sm:gap-7">
+              {/* Aurex Privy Logo */}
+              <div className="flex items-center">
+                <Image
+                  src="/images/aurex_privy_logo.png"
+                  alt="Aurex Privy"
+                  width={130}
+                  height={38}
+                  className="h-7 sm:h-8 w-auto object-contain brightness-105"
+                />
+              </div>
+
+              <div className="h-5 w-px bg-white/25 hidden sm:block" />
+
+              {/* Gulf News Logo */}
+              <a
+                href="https://gulfnews.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center hover:opacity-80 transition-opacity"
+                aria-label="Gulf News"
+              >
+                <Image
+                  src="/images/gulf_news_logo.png"
+                  alt="Gulf News"
+                  width={140}
+                  height={24}
+                  className="h-5 sm:h-6 w-auto object-contain brightness-105"
+                />
+              </a>
+
+              <div className="h-5 w-px bg-white/25 hidden sm:block" />
+
+              {/* BeingShe Logo */}
+              <div className="flex items-center">
+                <Image
+                  src="/images/beingshe_logo.png"
+                  alt="BeingShe"
+                  width={120}
+                  height={40}
+                  className="h-7 sm:h-8 w-auto object-contain brightness-105"
+                />
+              </div>
+            </div>
           </motion.div>
 
         </div>

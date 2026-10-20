@@ -8,6 +8,7 @@ import WhySheOwnsSection from "@/components/WhySheOwnsSection";
 import CommunitySection from "@/components/CommunitySection";
 import MeetFoundersSection from "@/components/MeetFoundersSection";
 import WorkshopsCommunitySection from "@/components/WorkshopsCommunitySection";
+import PastEventsSection from "@/components/PastEventsSection";
 import InvestmentGuideSection from "@/components/InvestmentGuideSection";
 import FAQSection from "@/components/FAQSection";
 import ConsultationFormSection from "@/components/ConsultationFormSection";
@@ -34,6 +35,7 @@ export default function Home() {
       <CommunitySection />
       <MeetFoundersSection />
       <WorkshopsCommunitySection />
+      <PastEventsSection />
       <InvestmentGuideSection />
       <FAQSection />
       <ConsultationFormSection />
