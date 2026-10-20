@@ -45,12 +45,12 @@ export default function Footer() {
           <div className="lg:col-span-6 space-y-4">
             <a href="#" className="inline-block">
               <Image
-                src="/images/sheowns_logo.png"
-                alt="SheOwns Logo"
-                width={300}
-                height={110}
+                src="/images/aurex_privy_logo.png"
+                alt="Aurex Privy Logo"
+                width={224}
+                height={66}
                 unoptimized
-                className="h-14 sm:h-16 w-auto object-contain"
+                className="h-11 sm:h-13 w-auto object-contain"
               />
             </a>
             <p className="text-xs text-[#F8F5EF]/70 font-light max-w-md leading-relaxed pt-1">

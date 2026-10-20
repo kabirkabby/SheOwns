@@ -119,12 +119,12 @@ END:VCALENDAR`;
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center group">
             <Image
-              src="/images/sheowns_logo.png"
-              alt="SheOwns Logo"
-              width={220}
-              height={80}
+              src="/images/aurex_privy_logo.png"
+              alt="Aurex Privy Logo"
+              width={224}
+              height={66}
               unoptimized
-              className="h-11 sm:h-13 w-auto object-contain group-hover:opacity-90 transition-opacity"
+              className="h-9 sm:h-11 w-auto object-contain group-hover:opacity-90 transition-opacity"
             />
           </Link>
 

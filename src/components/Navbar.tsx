@@ -65,12 +65,12 @@ export default function Navbar() {
           <div className="flex items-center space-x-3 sm:space-x-4">
             <a href="#" className="flex items-center group py-1">
               <Image
-                src="/images/sheowns_logo.png"
-                alt="SheOwns Logo"
-                width={260}
-                height={96}
+                src="/images/aurex_privy_logo.png"
+                alt="Aurex Privy Logo"
+                width={224}
+                height={66}
                 unoptimized
-                className="h-12 sm:h-14 w-auto object-contain group-hover:opacity-90 transition-opacity"
+                className="h-9 sm:h-11 w-auto object-contain group-hover:opacity-90 transition-opacity"
               />
             </a>
 

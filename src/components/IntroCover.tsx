@@ -105,21 +105,21 @@ export default function IntroCover({ onDismiss }: IntroCoverProps) {
 
             </motion.div>
 
-            {/* Right Column: Saree Girl Illustration */}
+            {/* Right Column: Woman in Moorish Arch */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="lg:col-span-5 relative flex justify-center lg:justify-end"
             >
-              <div className="relative w-full max-w-xs sm:max-w-md lg:max-w-lg aspect-[3/4]">
+              <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md aspect-[2/3]">
                 <Image
-                  src="/images/intro_woman_saree.png"
-                  alt="SheOwns Leader"
+                  src="/images/intro_woman_arch.png"
+                  alt="SheOwns Leader in Moorish Arch"
                   fill
                   unoptimized
                   priority
-                  className="object-contain object-center"
+                  className="object-contain object-bottom"
                 />
               </div>
             </motion.div>
