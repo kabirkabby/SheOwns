@@ -13,29 +13,29 @@ export default function CommunitySection() {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-          {/* Left Column: Custom Watercolor Character Illustration (No Shadow) */}
+          {/* Left Column: Sisterhood Community Illustration */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9 }}
-            className="lg:col-span-5 relative w-full aspect-[3/4] rounded-3xl overflow-hidden border-2 border-[#D6BB88]/40 group bg-[#3B235A]/05"
+            className="lg:col-span-5 relative w-full aspect-[4/5] rounded-3xl overflow-hidden border-2 border-[#D6BB88]/40 group bg-[#3B235A]/05 shadow-2xl"
           >
             <Image
-              src="/images/community_salon.jpg"
-              alt="SheOwns Salon & Women Empowerment Community"
+              src="/images/sisterhood_community.jpg"
+              alt="A Sisterhood of Ownership — SheOwns Dubai Community"
               fill
               priority
               unoptimized
-              className="object-cover group-hover:scale-105 transition-transform duration-700"
+              className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
             />
             {/* Subtle Gradient Framing */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#21102F]/60 via-transparent to-transparent pointer-events-none" />
 
             {/* Bottom Overlay Tag */}
-            <div className="absolute bottom-6 left-6 right-6 bg-[#21102F]/90 backdrop-blur-md border border-[#D6BB88]/30 p-4 rounded-2xl">
+            <div className="absolute bottom-5 left-5 right-5 bg-[#21102F]/90 backdrop-blur-md border border-[#D6BB88]/30 p-4 rounded-2xl">
               <span className="text-[10px] uppercase tracking-widest text-[#D6BB88] font-semibold block mb-0.5">
-                The SheOwns Salon
+                A Sisterhood of Ownership
               </span>
               <p className="text-xs text-[#F8F5EF]/90 font-light italic">
                 “When one woman steps into her financial power, she lifts an entire generation.”
