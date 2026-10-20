@@ -15,7 +15,7 @@ export default function HeroSection() {
           fill
           priority
           unoptimized
-          className="object-cover object-center"
+          className="object-cover object-right"
         />
       </div>
 
