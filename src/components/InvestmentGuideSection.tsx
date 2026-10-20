@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function InvestmentGuideSection() {
-  const { t, isRtl } = useLanguage();
+  const { t } = useLanguage();
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -47,7 +47,7 @@ export default function InvestmentGuideSection() {
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-0">
 
             {/* Left — editorial context */}
-            <div className="lg:col-span-7 p-10 sm:p-14 space-y-8 border-b lg:border-b-0 lg:border-r rtl:lg:border-r-0 rtl:lg:border-l border-[#D6BB88]/20">
+            <div className="lg:col-span-7 p-10 sm:p-14 space-y-8 border-b lg:border-b-0 lg:border-r border-[#D6BB88]/20">
               <div className="w-12 h-12 rounded-2xl bg-[#D6BB88]/15 border border-[#D6BB88]/30 flex items-center justify-center text-[#D6BB88]">
                 <BookOpen className="w-6 h-6" />
               </div>
@@ -64,7 +64,7 @@ export default function InvestmentGuideSection() {
 
               <ul className="space-y-3">
                 {t.guide.bullets.map((item) => (
-                  <li key={item} className="flex items-start space-x-3 rtl:space-x-reverse text-base text-[#F8F5EF]/80 font-light">
+                  <li key={item} className="flex items-start space-x-3 text-base text-[#F8F5EF]/80 font-light">
                     <span className="text-[#D6BB88] font-bold mt-0.5 shrink-0">•</span>
                     <span>{item}</span>
                   </li>
@@ -92,10 +92,10 @@ export default function InvestmentGuideSection() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-gradient-to-r from-[#D6BB88] to-[#B89B62] text-[#21102F] font-semibold text-sm uppercase tracking-widest py-4 rounded-xl hover:scale-[1.01] transition-transform duration-300 shadow-xl flex items-center justify-center space-x-2 rtl:space-x-reverse cursor-pointer disabled:opacity-50"
+                      className="w-full bg-gradient-to-r from-[#D6BB88] to-[#B89B62] text-[#21102F] font-semibold text-sm uppercase tracking-widest py-4 rounded-xl hover:scale-[1.01] transition-transform duration-300 shadow-xl flex items-center justify-center space-x-2 cursor-pointer disabled:opacity-50"
                     >
                       <span>{t.guide.downloadBtn}</span>
-                      <ArrowRight className="w-4 h-4 rtl:rotate-180" />
+                      <ArrowRight className="w-4 h-4" />
                     </button>
                   </form>
                 </>

@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function CommunitySection() {
-  const { t, isRtl } = useLanguage();
+  const { t } = useLanguage();
 
   return (
     <section id="community" className="bg-[#F8F5EF] py-28 px-6 md:px-12 relative overflow-hidden text-[#2B2B2B]">
@@ -55,7 +55,7 @@ export default function CommunitySection() {
             className="lg:col-span-7 space-y-8"
           >
             {/* Badge */}
-            <div className="inline-flex items-center space-x-2 rtl:space-x-reverse bg-[#3B235A]/10 border border-[#3B235A]/20 px-3.5 py-1.5 rounded-full">
+            <div className="inline-flex items-center space-x-2 bg-[#3B235A]/10 border border-[#3B235A]/20 px-3.5 py-1.5 rounded-full">
               <span className="text-xs uppercase tracking-widest text-[#3B235A] font-semibold">
                 {t.community.tag}
               </span>
@@ -81,10 +81,10 @@ export default function CommunitySection() {
             <div className="pt-4">
               <a
                 href="#consultation"
-                className="inline-flex items-center space-x-2 rtl:space-x-reverse bg-gradient-to-r from-[#D6BB88] via-[#E7D7B3] to-[#B89B62] text-[#21102F] font-semibold text-xs uppercase tracking-widest px-8 py-4 rounded-full hover:scale-[1.02] transition-transform shadow-xl group"
+                className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#D6BB88] via-[#E7D7B3] to-[#B89B62] text-[#21102F] font-semibold text-xs uppercase tracking-widest px-8 py-4 rounded-full hover:scale-[1.02] transition-transform shadow-xl group"
               >
                 <span>{t.community.cta}</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition-transform" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
 

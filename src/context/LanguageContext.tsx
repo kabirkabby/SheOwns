@@ -22,8 +22,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     const saved = localStorage.getItem("sheowns_locale") as Locale;
     if (saved === "ar" || saved === "en") {
       setLocaleState(saved);
-      document.documentElement.dir = saved === "ar" ? "rtl" : "ltr";
+      document.documentElement.dir = "ltr";
       document.documentElement.lang = saved;
+    } else {
+      document.documentElement.dir = "ltr";
+      document.documentElement.lang = "en";
     }
   }, []);
 
@@ -34,7 +37,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     } catch (e) {
       // ignore in incognito or restricted mode
     }
-    document.documentElement.dir = newLocale === "ar" ? "rtl" : "ltr";
+    // Maintain standard LTR layout without mirroring anything
+    document.documentElement.dir = "ltr";
     document.documentElement.lang = newLocale;
   };
 
@@ -42,12 +46,13 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     setLocale(locale === "en" ? "ar" : "en");
   };
 
-  const isRtl = locale === "ar";
+  // We keep isRtl as false for layout purposes so nothing mirrors
+  const isRtl = false;
   const t = translations[locale];
 
   return (
     <LanguageContext.Provider value={{ locale, setLocale, toggleLocale, t, isRtl }}>
-      <div className={isRtl ? "font-arabic" : ""} dir={isRtl ? "rtl" : "ltr"}>
+      <div className={locale === "ar" ? "font-arabic" : ""} dir="ltr">
         {children}
       </div>
     </LanguageContext.Provider>

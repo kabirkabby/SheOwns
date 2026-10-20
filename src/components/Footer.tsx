@@ -10,7 +10,7 @@ export default function Footer() {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const { t, isRtl } = useLanguage();
+  const { t } = useLanguage();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -153,7 +153,7 @@ export default function Footer() {
                 </a>
               </div>
             </div>
-            <div className="flex items-center space-x-3 rtl:space-x-reverse pt-2 text-[#D6BB88]">
+            <div className="flex items-center space-x-3 pt-2 text-[#D6BB88]">
               <a
                 href="https://instagram.com/aurexprivy"
                 target="_blank"
@@ -187,14 +187,14 @@ export default function Footer() {
 
         {/* Bottom Row: Disclaimer & Back to Top */}
         <div className="pt-8 border-t border-[#D6BB88]/10 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] text-[#F8F5EF]/50 font-light">
-          <div className="text-center md:text-left rtl:md:text-right">
+          <div className="text-center md:text-left">
             {t.footer.copyright}
           </div>
 
-          <div className="flex items-center space-x-6 rtl:space-x-reverse">
+          <div className="flex items-center space-x-6">
             <button
               onClick={scrollToTop}
-              className="inline-flex items-center space-x-1.5 rtl:space-x-reverse text-[#D6BB88] hover:text-[#F8F5EF] transition-colors cursor-pointer"
+              className="inline-flex items-center space-x-1.5 text-[#D6BB88] hover:text-[#F8F5EF] transition-colors cursor-pointer"
             >
               <span>{t.footer.backToTop}</span>
               <ArrowUp className="w-3 h-3" />
@@ -203,7 +203,7 @@ export default function Footer() {
         </div>
 
         {/* Legal Disclaimer Subtext */}
-        <p className="text-[9px] text-[#F8F5EF]/40 font-light leading-relaxed text-center md:text-left rtl:md:text-right pt-2 border-t border-[#D6BB88]/5">
+        <p className="text-[9px] text-[#F8F5EF]/40 font-light leading-relaxed text-center md:text-left pt-2 border-t border-[#D6BB88]/5">
           {t.footer.disclaimer}
         </p>
 

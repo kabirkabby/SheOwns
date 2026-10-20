@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function MeetFoundersSection() {
-  const { t, isRtl } = useLanguage();
+  const { t } = useLanguage();
 
   const founders = [
     {
@@ -76,12 +76,12 @@ export default function MeetFoundersSection() {
 
               {/* Quote + credentials */}
               <div className="space-y-5 px-2">
-                <blockquote className="font-serif text-xl sm:text-2xl text-[#21102F] font-light leading-relaxed italic border-l-2 rtl:border-l-0 rtl:border-r-2 border-[#D6BB88] pl-5 rtl:pl-0 rtl:pr-5">
+                <blockquote className="font-serif text-xl sm:text-2xl text-[#21102F] font-light leading-relaxed italic border-l-2 border-[#D6BB88] pl-5">
                   "{quote}"
                 </blockquote>
                 <ul className="space-y-2">
                   {credentials.map((c) => (
-                    <li key={c} className="text-md text-[#2B2B2B]/70 font-regular flex items-start space-x-2 rtl:space-x-reverse">
+                    <li key={c} className="text-md text-[#2B2B2B]/70 font-regular flex items-start space-x-2">
                       <span className="text-[#D6BB88] mt-1">—</span>
                       <span>{c}</span>
                     </li>

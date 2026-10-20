@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function HeroSection() {
-  const { t, isRtl } = useLanguage();
+  const { t } = useLanguage();
 
   return (
     <section className="relative min-h-[100vh] bg-[#21102F] text-[#F8F5EF] flex items-center overflow-hidden">
@@ -65,10 +65,10 @@ export default function HeroSection() {
           >
             <a
               href="#consultation"
-              className="group inline-flex items-center justify-center space-x-2 rtl:space-x-reverse bg-gradient-to-r from-[#D6BB88] via-[#E7D7B3] to-[#B89B62] px-7 py-4 rounded-full text-xs uppercase tracking-widest text-[#21102F] font-semibold hover:scale-[1.02] transition-transform shadow-xl text-center"
+              className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-[#D6BB88] via-[#E7D7B3] to-[#B89B62] px-7 py-4 rounded-full text-xs uppercase tracking-widest text-[#21102F] font-semibold hover:scale-[1.02] transition-transform shadow-xl text-center"
             >
               <span>{t.hero.ctaPrimary}</span>
-              <ArrowDownRight className="w-4 h-4 group-hover:rotate-45 rtl:group-hover:-rotate-45 transition-transform duration-300 shrink-0" />
+              <ArrowDownRight className="w-4 h-4 group-hover:rotate-45 transition-transform duration-300 shrink-0" />
             </a>
             <a
               href="#property-show"

@@ -5,7 +5,7 @@ import { MapPin, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function WorkshopsCommunitySection() {
-  const { t, isRtl } = useLanguage();
+  const { t } = useLanguage();
 
   return (
     <section id="property-show" className="bg-[#F8F5EF] py-24 px-6 md:px-12 overflow-hidden relative">
@@ -43,10 +43,10 @@ export default function WorkshopsCommunitySection() {
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-0">
 
             {/* Left column — main details */}
-            <div className="lg:col-span-7 p-10 sm:p-14 space-y-10 border-b lg:border-b-0 lg:border-r rtl:lg:border-r-0 rtl:lg:border-l border-[#D6BB88]/20">
+            <div className="lg:col-span-7 p-10 sm:p-14 space-y-10 border-b lg:border-b-0 lg:border-r border-[#D6BB88]/20">
 
               {/* Badge */}
-              <div className="inline-flex items-center space-x-2 rtl:space-x-reverse border border-[#D6BB88]/40 px-4 py-1.5 rounded-full">
+              <div className="inline-flex items-center space-x-2 border border-[#D6BB88]/40 px-4 py-1.5 rounded-full">
                 <span className="text-[10px] uppercase tracking-widest text-[#D6BB88] font-semibold">{t.propertyShow.badge}</span>
               </div>
 
@@ -74,7 +74,7 @@ export default function WorkshopsCommunitySection() {
               </div>
 
               {/* Venue Notice */}
-              <div className="flex items-start space-x-3 rtl:space-x-reverse bg-white/5 border border-white/10 p-4 rounded-xl">
+              <div className="flex items-start space-x-3 bg-white/5 border border-white/10 p-4 rounded-xl">
                 <MapPin className="w-5 h-5 text-[#D6BB88] shrink-0 mt-0.5" />
                 <div>
                   <p className="text-sm font-medium text-[#F8F5EF]">{t.propertyShow.venueNoticeTitle}</p>
@@ -86,10 +86,10 @@ export default function WorkshopsCommunitySection() {
               <div className="pt-2">
                 <a
                   href="/rsvp"
-                  className="inline-flex items-center space-x-2 rtl:space-x-reverse bg-gradient-to-r from-[#D6BB88] to-[#B89B62] text-[#21102F] font-semibold text-xs uppercase tracking-widest px-8 py-4 rounded-full hover:scale-[1.02] transition-transform shadow-xl cursor-pointer"
+                  className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#D6BB88] to-[#B89B62] text-[#21102F] font-semibold text-xs uppercase tracking-widest px-8 py-4 rounded-full hover:scale-[1.02] transition-transform shadow-xl cursor-pointer"
                 >
                   <span>{t.propertyShow.cta}</span>
-                  <ArrowUpRight className="w-4 h-4 rtl:rotate-[-90deg]" />
+                  <ArrowUpRight className="w-4 h-4" />
                 </a>
                 <p className="text-xs text-[#F8F5EF]/40 font-light mt-3">{t.propertyShow.ctaSubtext}</p>
               </div>

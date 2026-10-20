@@ -116,7 +116,7 @@ export default function AboutSection() {
               <div className="space-y-2 divide-y divide-[#D6BB88]/20">
                 {t.about.standardItems.map(([heading, desc]) => (
                   <div key={heading} className="pt-5 space-y-1">
-                    <span className="text-base font-semibold text-[#D6BB88] flex items-center space-x-2 rtl:space-x-reverse">
+                    <span className="text-base font-semibold text-[#D6BB88] flex items-center space-x-2">
                       <CheckCircle2 className="w-4 h-4 shrink-0" />
                       <span>{heading}</span>
                     </span>
@@ -126,9 +126,9 @@ export default function AboutSection() {
               </div>
               <div className="pt-2 border-t border-[#D6BB88]/20 flex items-center justify-between flex-wrap gap-4">
                 <span className="text-sm text-[#D6BB88]">{t.about.readyPrompt}</span>
-                <a href="#consultation" className="inline-flex items-center space-x-1.5 rtl:space-x-reverse text-xs uppercase tracking-widest bg-[#D6BB88] text-[#21102F] px-5 py-2.5 rounded-full font-semibold hover:bg-[#E7D7B3] transition-colors">
+                <a href="#consultation" className="inline-flex items-center space-x-1.5 text-xs uppercase tracking-widest bg-[#D6BB88] text-[#21102F] px-5 py-2.5 rounded-full font-semibold hover:bg-[#E7D7B3] transition-colors">
                   <span>{t.about.bookSession}</span>
-                  <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
             </motion.div>

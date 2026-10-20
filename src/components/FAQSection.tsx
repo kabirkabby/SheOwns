@@ -62,7 +62,7 @@ export default function FAQSection() {
               >
                 <button
                   onClick={() => toggleFAQ(idx)}
-                  className="w-full p-7 text-left rtl:text-right flex items-center justify-between space-x-4 rtl:space-x-reverse focus:outline-none cursor-pointer"
+                  className="w-full p-7 text-left flex items-center justify-between space-x-4 focus:outline-none cursor-pointer"
                 >
                   <span className="font-serif text-2xl sm:text-3xl text-[#21102F] font-normal">
                     {faq.question}
@@ -83,7 +83,7 @@ export default function FAQSection() {
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="px-7 pb-8 text-base sm:text-lg text-[#2B2B2B]/80 font-light leading-relaxed border-t border-[#D6BB88]/15 pt-5 text-left rtl:text-right"
+                      className="px-7 pb-8 text-base sm:text-lg text-[#2B2B2B]/80 font-light leading-relaxed border-t border-[#D6BB88]/15 pt-5 text-left"
                     >
                       {faq.answer}
                     </motion.div>

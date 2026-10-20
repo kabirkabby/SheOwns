@@ -80,7 +80,7 @@ const galleryImages = [
 ];
 
 export default function PastEventsSection() {
-  const { t, isRtl } = useLanguage();
+  const { t } = useLanguage();
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   useEffect(() => {
@@ -115,7 +115,7 @@ export default function PastEventsSection() {
           transition={{ duration: 0.8 }}
           className="space-y-3 sm:space-y-4 max-w-2xl"
         >
-          <div className="inline-flex items-center space-x-2 rtl:space-x-reverse bg-white/5 border border-[#D6BB88]/30 px-3.5 py-1.5 rounded-full">
+          <div className="inline-flex items-center space-x-2 bg-white/5 border border-[#D6BB88]/30 px-3.5 py-1.5 rounded-full">
             <span className="text-[10px] sm:text-xs uppercase tracking-widest text-[#D6BB88] font-semibold">
               {t.pastEvents.tag}
             </span>

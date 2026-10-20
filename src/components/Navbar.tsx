@@ -9,7 +9,7 @@ import { useLanguage } from "@/context/LanguageContext";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { toggleLocale, t, isRtl } = useLanguage();
+  const { toggleLocale, t } = useLanguage();
 
   const navLinks = [
     { name: t.navbar.about, href: "#about" },
@@ -41,7 +41,7 @@ export default function Navbar() {
           scrolled ? "max-h-0 opacity-0 pointer-events-none" : "max-h-24 opacity-100"
         }`}
       >
-        <div className="bg-gradient-to-r from-[#E7D7B3] via-[#D6BB88] to-[#B89B62] text-[#21102F] text-[10px] sm:text-xs py-1.5 px-3 text-center font-medium tracking-wide shadow-sm flex items-center justify-center space-x-1 sm:space-x-1.5 rtl:space-x-reverse flex-wrap">
+        <div className="bg-gradient-to-r from-[#E7D7B3] via-[#D6BB88] to-[#B89B62] text-[#21102F] text-[10px] sm:text-xs py-1.5 px-3 text-center font-medium tracking-wide shadow-sm flex items-center justify-center space-x-1 sm:space-x-1.5 flex-wrap">
           <span>{t.navbar.announcement}</span>
           <a
             href="/rsvp"
@@ -62,7 +62,7 @@ export default function Navbar() {
       >
         <div className="max-w-8xl mx-auto px-6 md:px-12 flex items-center justify-between">
           {/* Brand Logos with White Divider */}
-          <div className="flex items-center space-x-3 sm:space-x-4 rtl:space-x-reverse">
+          <div className="flex items-center space-x-3 sm:space-x-4">
             <a href="#" className="flex items-center group py-1">
               <Image
                 src="/images/sheowns_logo.png"
@@ -97,7 +97,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center space-x-4 rtl:space-x-reverse">
+          <nav className="hidden lg:flex items-center space-x-4">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -111,11 +111,11 @@ export default function Navbar() {
           </nav>
 
           {/* Desktop Action Buttons */}
-          <div className="hidden sm:flex items-center space-x-3 rtl:space-x-reverse">
+          <div className="hidden sm:flex items-center space-x-3">
             {/* Language Switcher */}
             <button
               onClick={toggleLocale}
-              className="flex items-center space-x-1.5 rtl:space-x-reverse text-xs tracking-wider text-[#F8F5EF] hover:text-[#D6BB88] transition-colors px-3 py-2 border border-[#D6BB88]/40 rounded-full hover:border-[#D6BB88] bg-white/5 cursor-pointer font-medium"
+              className="flex items-center space-x-1.5 text-xs tracking-wider text-[#F8F5EF] hover:text-[#D6BB88] transition-colors px-3 py-2 border border-[#D6BB88]/40 rounded-full hover:border-[#D6BB88] bg-white/5 cursor-pointer font-medium"
               aria-label="Switch Language"
             >
               <Globe className="w-3.5 h-3.5 text-[#D6BB88]" />
@@ -126,7 +126,7 @@ export default function Navbar() {
               href="https://wa.me/971501815561?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20SheOwns"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-1.5 rtl:space-x-reverse text-xs tracking-wider text-[#D6BB88] hover:text-[#F8F5EF] transition-colors px-3 py-2 border border-[#D6BB88]/30 rounded-full hover:border-[#D6BB88]"
+              className="flex items-center space-x-1.5 text-xs tracking-wider text-[#D6BB88] hover:text-[#F8F5EF] transition-colors px-3 py-2 border border-[#D6BB88]/30 rounded-full hover:border-[#D6BB88]"
             >
               <MessageCircle className="w-3.5 h-3.5" />
               <span>{t.navbar.whatsapp}</span>
@@ -137,7 +137,7 @@ export default function Navbar() {
               className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-[#D6BB88] to-[#B89B62] px-6 py-2.5 text-xs font-medium uppercase tracking-widest text-[#21102F] transition-all duration-300 hover:scale-[1.02] shadow-md hover:shadow-[#D6BB88]/20"
             >
               <span>{t.navbar.bookConsultation}</span>
-              <ArrowUpRight className="ml-1 rtl:mr-1 rtl:ml-0 w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 rtl:group-hover:-translate-x-0.5" />
+              <ArrowUpRight className="ml-1 w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
           </div>
 
@@ -169,7 +169,7 @@ export default function Navbar() {
                       toggleLocale();
                       setMobileMenuOpen(false);
                     }}
-                    className="flex items-center space-x-1.5 rtl:space-x-reverse text-xs tracking-wider text-[#21102F] bg-gradient-to-r from-[#D6BB88] to-[#B89B62] font-semibold px-4 py-1.5 rounded-full shadow-sm cursor-pointer"
+                    className="flex items-center space-x-1.5 text-xs tracking-wider text-[#21102F] bg-gradient-to-r from-[#D6BB88] to-[#B89B62] font-semibold px-4 py-1.5 rounded-full shadow-sm cursor-pointer"
                   >
                     <Globe className="w-3.5 h-3.5" />
                     <span>{t.navbar.langButton}</span>
@@ -191,7 +191,7 @@ export default function Navbar() {
                     href="https://wa.me/971501815561?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20SheOwns"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center space-x-2 rtl:space-x-reverse text-xs tracking-wider text-[#D6BB88] py-2.5 border border-[#D6BB88]/40 rounded-full"
+                    className="flex items-center justify-center space-x-2 text-xs tracking-wider text-[#D6BB88] py-2.5 border border-[#D6BB88]/40 rounded-full"
                   >
                     <MessageCircle className="w-4 h-4" />
                     <span>{t.navbar.whatsapp}</span>

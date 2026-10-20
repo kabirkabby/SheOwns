@@ -6,7 +6,7 @@ import { MessageCircle, CheckCircle2, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function ConsultationFormSection() {
-  const { t, isRtl } = useLanguage();
+  const { t } = useLanguage();
   const todayStr = new Date().toISOString().split("T")[0];
 
   const [formData, setFormData] = useState({
@@ -79,7 +79,7 @@ export default function ConsultationFormSection() {
           {/* Quick Value Checks */}
           <div className="space-y-3 text-sm text-[#F8F5EF]/90 font-light">
             {t.consultation.checks.map((check) => (
-              <div key={check} className="flex items-center space-x-3 rtl:space-x-reverse">
+              <div key={check} className="flex items-center space-x-3">
                 <CheckCircle2 className="w-5 h-5 text-[#D6BB88] shrink-0" />
                 <span>{check}</span>
               </div>
@@ -93,16 +93,16 @@ export default function ConsultationFormSection() {
             </span>
             <div>
               <a
-                href="https://wa.me/971501815561?text=Hello%20SheOwns,%20I%20would%20like%20to%20book%20a%20private%20consultation"
+                href="https://wa.me/971501815561?text=Hello%20SheOwns,%20I%20would%20like%20to%20know%20more%20about%20booking%20a%20private%20consultation"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center space-x-3 rtl:space-x-reverse bg-[#25D366]/20 border border-[#25D366]/50 text-[#F8F5EF] hover:bg-[#25D366]/30 px-6 py-3.5 rounded-full transition-all duration-300 group"
+                className="inline-flex items-center space-x-3 bg-[#25D366]/20 border border-[#25D366]/50 text-[#F8F5EF] hover:bg-[#25D366]/30 px-6 py-3.5 rounded-full transition-all duration-300 group"
               >
                 <MessageCircle className="w-5 h-5 text-[#25D366]" />
                 <span className="text-xs font-medium uppercase tracking-wider">
                   {t.consultation.whatsappPrompt}
                 </span>
-                <ArrowRight className="w-4 h-4 text-[#25D366] group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition-transform" />
+                <ArrowRight className="w-4 h-4 text-[#25D366] group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
           </div>

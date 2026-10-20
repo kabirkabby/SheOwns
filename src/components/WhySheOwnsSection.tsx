@@ -8,7 +8,7 @@ import { useLanguage } from "@/context/LanguageContext";
 const pillarIcons = [BookOpen, Users, Key, Percent, FileText, ShieldCheck];
 
 export default function WhySheOwnsSection() {
-  const { t, isRtl } = useLanguage();
+  const { t, locale } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -55,7 +55,7 @@ export default function WhySheOwnsSection() {
           className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end"
         >
           <div className="lg:col-span-7 space-y-4">
-            <div className="inline-flex items-center space-x-2 rtl:space-x-reverse bg-[#3B235A]/10 border border-[#3B235A]/20 px-3.5 py-1.5 rounded-full">
+            <div className="inline-flex items-center space-x-2 bg-[#3B235A]/10 border border-[#3B235A]/20 px-3.5 py-1.5 rounded-full">
               <span className="text-xs uppercase tracking-widest text-[#3B235A] font-semibold">
                 {t.whySheOwns.tag}
               </span>
@@ -127,14 +127,14 @@ export default function WhySheOwnsSection() {
                   {/* Bottom Action Bar */}
                   <div className="pt-4 border-t border-[#D6BB88]/20 flex items-center justify-between relative z-10 mt-4">
                     <span className="text-[11px] uppercase tracking-widest text-[#D6BB88]/80 font-medium">
-                      {isRtl ? `الركيزة ${pillar.num} من ٠٦` : `Pillar ${pillar.num} of 06`}
+                      {locale === "ar" ? `الركيزة ${pillar.num} من ٠٦` : `Pillar ${pillar.num} of 06`}
                     </span>
                     <a
                       href="#consultation"
-                      className="inline-flex items-center space-x-1 rtl:space-x-reverse text-xs uppercase tracking-widest text-[#D6BB88] font-semibold"
+                      className="inline-flex items-center space-x-1 text-xs uppercase tracking-widest text-[#D6BB88] font-semibold"
                     >
                       <span>{t.navbar.bookConsultation}</span>
-                      <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </a>
                   </div>
 
@@ -240,14 +240,14 @@ export default function WhySheOwnsSection() {
               {/* Bottom Action Bar */}
               <div className="pt-6 border-t border-[#D6BB88]/20 flex items-center justify-between relative z-10 mt-6">
                 <span className="text-xs uppercase tracking-widest text-[#D6BB88]/80 font-medium">
-                  {isRtl ? `الركيزة ${activePillar.num} من ٠٦` : `Pillar ${activePillar.num} of 06`}
+                  {locale === "ar" ? `الركيزة ${activePillar.num} من ٠٦` : `Pillar ${activePillar.num} of 06`}
                 </span>
                 <a
                   href="#consultation"
-                  className="inline-flex items-center space-x-1.5 rtl:space-x-reverse text-xs uppercase tracking-widest text-[#D6BB88] hover:text-[#F8F5EF] font-semibold transition-colors group"
+                  className="inline-flex items-center space-x-1.5 text-xs uppercase tracking-widest text-[#D6BB88] hover:text-[#F8F5EF] font-semibold transition-colors group"
                 >
                   <span>{t.navbar.bookConsultation}</span>
-                  <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
 
@@ -274,7 +274,7 @@ export default function WhySheOwnsSection() {
                       : "bg-[#F8F5EF]/80 text-[#2B2B2B] border-[#D6BB88]/30 hover:bg-[#F8F5EF] hover:border-[#D6BB88]/70"
                   }`}
                 >
-                  <div className="flex items-center space-x-5 rtl:space-x-reverse">
+                  <div className="flex items-center space-x-5">
                     {/* Index Number */}
                     <span
                       className={`font-serif text-2xl sm:text-3xl font-light transition-colors ${

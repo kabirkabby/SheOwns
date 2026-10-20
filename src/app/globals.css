@@ -34,11 +34,13 @@
 }
 
 /* Custom quiet luxury utility classes */
-[dir="rtl"] {
+[lang="ar"],
+.font-arabic {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Tajawal", "Noto Sans Arabic", "Amiri", sans-serif;
 }
 
-[dir="rtl"] .font-serif {
+[lang="ar"] .font-serif,
+.font-arabic .font-serif {
   font-family: "Amiri", "Noto Naskh Arabic", "Traditional Arabic", serif;
 }
 
