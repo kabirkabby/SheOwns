@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowUpRight, MessageCircle, Globe } from "lucide-react";
+import { Menu, X, ArrowUpRight, Globe } from "lucide-react";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -70,12 +70,12 @@ export default function Navbar() {
                 width={224}
                 height={66}
                 unoptimized
-                className="h-9 sm:h-11 w-auto object-contain group-hover:opacity-90 transition-opacity"
+                className="h-5 sm:h-6.5 w-auto object-contain group-hover:opacity-90 transition-opacity"
               />
             </a>
 
             {/* White Divider Line */}
-            <div className="h-5 sm:h-6 w-[1px] bg-white/30 shrink-0" />
+            <div className="h-4 sm:h-5 w-[1px] bg-white/30 shrink-0" />
 
             {/* Gulf News Logo (Clickable) */}
             <a
@@ -115,22 +115,12 @@ export default function Navbar() {
             {/* Language Switcher */}
             <button
               onClick={toggleLocale}
-              className="flex items-center space-x-1.5 text-xs tracking-wider text-[#F8F5EF] hover:text-[#D6BB88] transition-colors px-3 py-2 border border-[#D6BB88]/40 rounded-full hover:border-[#D6BB88] bg-white/5 cursor-pointer font-medium"
+              className="flex items-center space-x-1.5 text-xs tracking-wider text-[#F8F5EF] hover:text-[#D6BB88] transition-colors px-3.5 py-2 border border-[#D6BB88]/40 rounded-full hover:border-[#D6BB88] bg-white/5 cursor-pointer font-medium"
               aria-label="Switch Language"
             >
               <Globe className="w-3.5 h-3.5 text-[#D6BB88]" />
               <span>{t.navbar.langButton}</span>
             </button>
-
-            <a
-              href="https://wa.me/971501815561?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20SheOwns"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center space-x-1.5 text-xs tracking-wider text-[#D6BB88] hover:text-[#F8F5EF] transition-colors px-3 py-2 border border-[#D6BB88]/30 rounded-full hover:border-[#D6BB88]"
-            >
-              <MessageCircle className="w-3.5 h-3.5" />
-              <span>{t.navbar.whatsapp}</span>
-            </a>
 
             <a
               href="#consultation"
@@ -187,15 +177,6 @@ export default function Navbar() {
                   </a>
                 ))}
                 <div className="pt-4 border-t border-[#D6BB88]/20 flex flex-col space-y-3">
-                  <a
-                    href="https://wa.me/971501815561?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20SheOwns"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center space-x-2 text-xs tracking-wider text-[#D6BB88] py-2.5 border border-[#D6BB88]/40 rounded-full"
-                  >
-                    <MessageCircle className="w-4 h-4" />
-                    <span>{t.navbar.whatsapp}</span>
-                  </a>
                   <a
                     href="#consultation"
                     onClick={() => setMobileMenuOpen(false)}

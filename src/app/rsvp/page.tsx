@@ -25,6 +25,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 export default function RSVPPage() {
   const { toggleLocale, t, locale } = useLanguage();
@@ -124,7 +125,7 @@ END:VCALENDAR`;
               width={224}
               height={66}
               unoptimized
-              className="h-9 sm:h-11 w-auto object-contain group-hover:opacity-90 transition-opacity"
+              className="h-5 sm:h-6.5 w-auto object-contain group-hover:opacity-90 transition-opacity"
             />
           </Link>
 
@@ -558,6 +559,9 @@ END:VCALENDAR`;
         <p>© 2026 SheOwns. Launched by Aurex Privy Real Estate in collaboration with Being She. All rights reserved.</p>
         <p className="text-[10px]">Suite no. 1509, The Exchange Tower, Business Bay, Dubai, United Arab Emirates · +971 50 181 5561</p>
       </footer>
+
+      {/* Floating WhatsApp Quick Action Button */}
+      <FloatingWhatsApp />
 
     </div>
   );

@@ -15,6 +15,7 @@ import ConsultationFormSection from "@/components/ConsultationFormSection";
 import Footer from "@/components/Footer";
 import IntroCover from "@/components/IntroCover";
 import EmailCapturePopup from "@/components/EmailCapturePopup";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 export default function Home() {
   const [coverDismissed, setCoverDismissed] = useState(false);
@@ -26,6 +27,9 @@ export default function Home() {
 
       {/* Email capture popup — triggers 45s after cover dismissal */}
       <EmailCapturePopup coverDismissed={coverDismissed} />
+
+      {/* Floating WhatsApp Quick Action Button */}
+      <FloatingWhatsApp />
 
       {/* Main Landing Page Content */}
       <Navbar />
