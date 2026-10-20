@@ -217,7 +217,7 @@ export const translations: Record<Locale, TranslationKeys> = {
       langButton: "العربية",
     },
     intro: {
-      badge: "An Aurex Privy Real Estate & Being She Initiative",
+      badge: "Aurex Privy & Gulf News Present",
       titleLine1: "SheOwns",
       titleLine2: "Do you yet?",
       subtitle: "Real Estate Ownership, Reimagined for Women.",
@@ -528,7 +528,7 @@ export const translations: Record<Locale, TranslationKeys> = {
       langButton: "English",
     },
     intro: {
-      badge: "مبادرة مشتركة بين أوريكس بريفي العقارية وجمعية بينغ شي",
+      badge: "مقدم من أوريكس بريفي وغلف نيوز",
       titleLine1: "شي أونز",
       titleLine2: "هل تمتلكين عقاركِ بعد؟",
       subtitle: "مفهوم جديد لملكية العقارات، صُمم خصيصاً للمرأة.",

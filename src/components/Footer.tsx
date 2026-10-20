@@ -43,7 +43,13 @@ export default function Footer() {
         {/* Top Row: Brand & Newsletter */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-6 space-y-4">
-            <a href="#" className="inline-block">
+            <a
+              href="https://aurexprivy.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block hover:opacity-80 transition-opacity"
+              aria-label="Aurex Privy"
+            >
               <Image
                 src="/images/aurex_privy_logo.png"
                 alt="Aurex Privy Logo"

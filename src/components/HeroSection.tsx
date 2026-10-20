@@ -89,8 +89,14 @@ export default function HeroSection() {
               {t.hero.presentedBy}
             </p>
             <div className="flex flex-wrap items-center gap-5 sm:gap-7">
-              {/* Aurex Privy Logo */}
-              <div className="flex items-center">
+              {/* Aurex Privy Logo (Clickable) */}
+              <a
+                href="https://aurexprivy.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center hover:opacity-80 transition-opacity"
+                aria-label="Aurex Privy"
+              >
                 <Image
                   src="/images/aurex_privy_logo.png"
                   alt="Aurex Privy"
@@ -98,11 +104,11 @@ export default function HeroSection() {
                   height={38}
                   className="h-7 sm:h-8 w-auto object-contain brightness-105"
                 />
-              </div>
+              </a>
 
               <div className="h-5 w-px bg-white/25 hidden sm:block" />
 
-              {/* Gulf News Logo */}
+              {/* Gulf News Logo (Clickable) */}
               <a
                 href="https://gulfnews.com/"
                 target="_blank"
@@ -121,8 +127,14 @@ export default function HeroSection() {
 
               <div className="h-5 w-px bg-white/25 hidden sm:block" />
 
-              {/* BeingShe Logo */}
-              <div className="flex items-center">
+              {/* BeingShe Logo (Clickable) */}
+              <a
+                href="https://beingshe.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center hover:opacity-80 transition-opacity"
+                aria-label="Being She"
+              >
                 <Image
                   src="/images/beingshe_logo.png"
                   alt="BeingShe"
@@ -130,7 +142,7 @@ export default function HeroSection() {
                   height={40}
                   className="h-7 sm:h-8 w-auto object-contain brightness-105"
                 />
-              </div>
+              </a>
             </div>
           </motion.div>
 

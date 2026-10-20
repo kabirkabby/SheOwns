@@ -63,7 +63,13 @@ export default function Navbar() {
         <div className="max-w-8xl mx-auto px-6 md:px-12 flex items-center justify-between">
           {/* Brand Logos with White Divider */}
           <div className="flex items-center space-x-3 sm:space-x-4">
-            <a href="#" className="flex items-center group py-1">
+            <a
+              href="https://aurexprivy.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center group py-1 hover:opacity-80 transition-opacity"
+              aria-label="Aurex Privy"
+            >
               <Image
                 src="/images/aurex_privy_logo.png"
                 alt="Aurex Privy Logo"
