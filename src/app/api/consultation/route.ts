@@ -42,16 +42,21 @@ export async function POST(req: Request) {
     const notificationEmail = process.env.NOTIFICATION_EMAIL || "info@sheowns.com";
     const fromEmail = process.env.RESEND_FROM_EMAIL || "SheOwns Leads <leads@leads.sheownsdubai.com>";
     const sheetsWebhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL || process.env.WEBHOOK_URL;
+    const consultationWebhookUrl =
+      process.env.CONSULTATION_WEBHOOK_URL ||
+      "http://178.105.51.39/api/inbound/webhook/consultation?token=b07969b12d0dcd20fd72ac74a840df22913b80edce20d699";
 
     console.log("⚙️ [SheOwns API] Environment check:", {
       hasResendKey: Boolean(resendApiKey),
       notificationEmail,
       fromEmail,
       hasSheetsWebhook: Boolean(sheetsWebhookUrl),
+      hasConsultationWebhook: Boolean(consultationWebhookUrl),
     });
 
     let emailResult = null;
     let sheetsResult = null;
+    let webhookResult = null;
 
     // 1. Send Email via Resend
     if (resendApiKey) {
@@ -162,7 +167,59 @@ export async function POST(req: Request) {
       console.warn("⚠️ [Resend Skipped]: RESEND_API_KEY environment variable is not defined.");
     }
 
-    // 2. Forward to Google Sheets Webhook
+    // 2. Forward to Inbound Consultation Webhook
+    if (consultationWebhookUrl) {
+      try {
+        console.log("📤 [Consultation Webhook] Forwarding lead to:", consultationWebhookUrl);
+        const webhookPayload = {
+          fullName,
+          name: fullName,
+          email,
+          phone,
+          phoneNumber: phone,
+          preferredDate: preferredDate || "Not Specified",
+          preferredTimeSlot: preferredTimeSlot || "Not Specified",
+          preferredContactTime: contactTiming,
+          message: message || "No additional notes provided.",
+          notes: message || "No additional notes provided.",
+          timeline: timeline || "",
+          source: "SheOwns Website Consultation Form",
+          timestamp: new Date().toISOString(),
+          submittedAtDubai: timestamp,
+          rawBody: body,
+        };
+
+        const webhookRes = await fetch(consultationWebhookUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(webhookPayload),
+          signal: AbortSignal.timeout(10000),
+        });
+
+        const resText = await webhookRes.text();
+        let parsed: any = null;
+        try {
+          parsed = JSON.parse(resText);
+        } catch {
+          parsed = resText;
+        }
+
+        console.log("📥 [Consultation Webhook Response]: Status:", webhookRes.status, "Body:", resText);
+        webhookResult = {
+          success: webhookRes.ok,
+          status: webhookRes.status,
+          response: parsed,
+        };
+      } catch (err: any) {
+        console.error("❌ [Consultation Webhook Error]: Failed to post to webhook:", err);
+        webhookResult = { success: false, error: err.message };
+      }
+    }
+
+    // 3. Forward to Google Sheets Webhook
     if (sheetsWebhookUrl) {
       try {
         console.log("📤 [Sheets] Sending POST to webhook:", sheetsWebhookUrl);
@@ -191,6 +248,7 @@ export async function POST(req: Request) {
       message: "Your consultation request has been received. Our advisory team will reach out within your preferred time slot.",
       debug: {
         email: emailResult,
+        webhook: webhookResult,
         sheets: sheetsResult,
       },
     });
